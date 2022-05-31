@@ -1,0 +1,70 @@
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body{
+        background-color: #EEEDDE;
+      }
+      img{
+        margin-left: 65px;
+        margin-top: -45px;
+      }
+      .btn1{
+        border: none;
+        outline: none;
+        height: 50px;
+        width: 100%;
+        background-color: #FF7527;
+        color: white;
+        border-radius: 10px;
+        font-weight: bold;
+        box-shadow: 0px 4px 8px 4px rgba(0,0,0,0.2);
+      }
+      .form-control1{
+        border: none;
+        outline: none;
+        height: 50px;
+        width: 100%;
+        background-color: #262525;
+        color: white;
+        border-radius: 10px;
+        font-weight: bold;
+      }
+      .form-control2{
+        border: none;
+        outline: none;
+        height: 50px;
+        width: 100%;
+        background-color: #262525;
+        color: white;
+        border-radius: 10px;
+        font-weight: bold;
+      }
+      .mysection{
+          padding-top: 130px;
+      }
+      .memex a{
+          color: #203239;
+          text-decoration: none;
+          float: right;
+          margin-right: 315px;
+      }
+      #myid a{
+          text-align: center;
+          text-decoration: none;
+          color: #203239;
+      }
+      #myid{
+        padding-left: 100px;
+        margin-top: -30px;
+      }
+      .header h1{
+          margin-left: 130px;
+          font-family: 'Lexend Deca', 'Courier New';
+          font-weight: 400;
+          font-size: 64px;
+      }
+      .box{
+          margin-bottom: -30px;
+      }

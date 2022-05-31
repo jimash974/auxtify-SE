@@ -1,0 +1,48 @@
+.logo{
+    float: right;
+    margin-top: 150px;  
+}
+.email{
+    width: 500px;
+    background-color: #224957;
+    height: 60px;
+}
+.username{
+    width: 500px;
+    background-color: #224957;
+    height: 60px;
+}
+.pass{
+    width: 500px;
+    background-color: #224957;
+    height: 60px;
+}
+.form-control{
+    color: white;
+}
+body{
+    background-color: #EEEDDE;
+}
+.allbox{
+    padding-top: 200px;
+    margin-right: 100px;
+}
+.allbox h1{
+    font-size: 55px;
+}
+.allbox p{
+    font-size: 25px;
+}
+.form-label{
+    font-size: 30px;
+}
+.btn{
+    width: 500px;
+    height: 60px;
+    background-color: #FF7527;
+    color: white;
+    margin-top: 25px;
+}
+.btn:hover{
+    color: white;
+}
