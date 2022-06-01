@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->string('slug')->unique();
-            $table->string('category');
+            $table->foreignId('category_id');
             $table->integer('price');
             $table->integer('bid');
             $table->integer('buyNow');

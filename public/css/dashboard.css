@@ -135,10 +135,11 @@ footer .container {
 
 }
 
+
 .col {
     margin: 10px 40px;
     border-radius: 25px;
-    width: 50px !important;
+    width: 50%;
     padding: 15px;
     height: 400px !important;
 }
@@ -177,6 +178,12 @@ footer .container {
 .product-img {
     text-align: center;
     margin: 10px 0;
+}
+
+.product-img img{
+    width: 155px;
+    border: 4px solid black;
+    border-radius: 5px;
 }
 
 .buy-now {

@@ -3,6 +3,8 @@
 use App\Http\Controllers\ItemControllers;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Category;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +22,12 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [ItemControllers::class, 'index']);
 
-Route::get('/ProductDetail', [ItemControllers::class, 'show']);
+Route::get('/ProductDetail/{Item:slug}', [ItemControllers::class, 'show']);
+
+Route::get('/categories/{category:slug}', function(Category $category){
+    return view('Category', [
+        'title' => $category->name,
+        'items' => $category->items,
+        'category' => $category->name
+    ]);
+});
