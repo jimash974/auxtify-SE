@@ -135,6 +135,11 @@ footer .container {
 
 }
 
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
 
 .col {
     margin: 10px 40px;
@@ -144,18 +149,28 @@ footer .container {
     height: 400px !important;
 }
 
-.col button {
+.wrapper button {
     background: none;
     border: none;
-}
+  }
 
-.product-reg {
+  .product-reg {
     background-color: rgba(255, 117, 39, 0.5);
-}
+    margin: 10px 40px;
+    border-radius: 25px;
+    width: 80%;
+    padding: 15px;
+    height: 400px !important;
+  }
 
 .product-under {
     background-color: rgba(255, 117, 39, 0.5);
     border: 10px solid red;
+    margin: 10px 40px;
+    border-radius: 25px;
+    width: 80%;
+    padding: 15px;
+    height: 400px !important;
 }
 
 .category {
@@ -173,6 +188,11 @@ footer .container {
 .product-exp {
     background-color: rgba(32, 50, 57);
     color: white !important;
+    margin: 10px 40px;
+    border-radius: 25px;
+    width: 80%;
+    padding: 15px;
+    height: 400px !important;
 }
 
 .product-img {
