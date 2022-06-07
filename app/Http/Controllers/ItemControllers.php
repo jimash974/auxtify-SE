@@ -10,7 +10,8 @@ class ItemControllers extends Controller
     public function index(){
         return view('dashboard', [
             "title" => "DASHBOARD",
-            "Items" => Item::all()
+            // "Items" => Item::all()
+            "Items" => Item::with("category")->get()
         ]);
     }
 

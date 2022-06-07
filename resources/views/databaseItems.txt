@@ -65,6 +65,22 @@ Item::create([
 'gambar' => 'Celana.jpg'
 ])
 
+Category::create([
+'name' => 'PROGRAMMING',
+'slug' => 'programming'
+])
+
+Category::create([
+'name' => 'PERSONAL',
+'slug' => 'personal'
+])
+
+Category::create([
+'name' => 'MOVIE',
+'slug' => 'movie'
+])
+
+
 
 
 

@@ -27,7 +27,7 @@ Route::get('/ProductDetail/{Item:slug}', [ItemControllers::class, 'show']);
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('Category', [
         'title' => $category->name,
-        'items' => $category->items,
+        'items' => $category->items->load('category'),
         'category' => $category->name
     ]);
 });
