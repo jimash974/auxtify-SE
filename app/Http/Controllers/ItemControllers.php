@@ -23,7 +23,7 @@ class ItemControllers extends Controller
         ]);
     }
 
-    // public function store(Request $request, Item $item){
+    // public function udpate(Request $request, Item $item){
 
     //     $validatedData = $request->validate(([
     //         'bid' => 'required'
@@ -32,6 +32,6 @@ class ItemControllers extends Controller
     //     if($request->bid < $item->bid){
     //         Item::
     //     }
-    // }
+    }
 }
 
