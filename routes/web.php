@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemControllers;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Models\Item;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [ItemControllers::class, 'index']);
 
-Route::get('/ProductDetail/{Item:slug}', [ItemControllers::class, 'show']);
+Route::get('/ProductDetail/{Item:slug}', [ItemControllers::class, 'show'])->middleware('auth');
 
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('Category', [
@@ -32,7 +33,7 @@ Route::get('/categories/{category:slug}', function(Category $category){
         'items' => $category->items->load('category'),
         'category' => $category->name
     ]);
-});
+})->middleware('auth');
 
 // Route::get('/login', function(){
 //     return view('login');
@@ -42,11 +43,19 @@ Route::get('/categories/{category:slug}', function(Category $category){
 //     return view('register');
 // });
 
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/register', [RegisterController::class, 'create']);
+// Jadi nanti middleware bakal ada di antara /login lalu ke middleware, lalu baru ke [LoginController::class, 'index']
+// hanya bisa diakses oleh user yg blm terautentikasi
+// name('login') = memberi nama route dengan nama login, ini berkaitan ketika mengakses dashboard tanpa authenticate
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware(('guest'));;
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+
+Route::get('/register', [RegisterController::class, 'create'])->middleware(('guest'));
 Route::post('/register', [RegisterController::class, 'store']);
+
+// Route::get('/dashboard', [ItemControllers::class, 'index'])->middleware('auth');
 
 
 

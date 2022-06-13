@@ -36,18 +36,37 @@
                         <div class="user-profile">
                             <img src="../images/user_profile.png" style="cursor:pointer" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Notifications</a></li>
-                                <li><a class="dropdown-item" href="#">Watchlist</a></li>
-                                <li><a class="dropdown-item" href="#">Wallet</a></li>
-                                <li><a class="dropdown-item" href="#">Filter</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="/login">Logout</a></li>
-                            </ul>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                                    @auth
+                                        <li><a class="dropdown-item" href="#">Notifications</a></li>
+                                        <li><a class="dropdown-item" href="#">Watchlist</a></li>
+                                        <li><a class="dropdown-item" href="#">Wallet</a></li>
+                                        <li><a class="dropdown-item" href="#">Filter</a></li>
+                                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                                        <li>
+                                            <form action="/logout" method="post">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item">
+                                                    Logout
+                                                </button>
+                                            </form>
+                                            
+                                        </li>
+                                    @else
+                                        <li><a class="dropdown-item" href="/login">Login</a></li>
+                                    @endauth
+                                </ul>
 
-                            <div class="user-profile-text">
-                                Susi Susanti
+                            @auth
+                            <div class="user-profile-text fs-5" style="width: 150px" >
+                                {{ auth()->user()->name }}
                             </div>
+                            @else
+                            <div class="user-profile-text fs-5" style="width: 150px" >
+                                Guest
+                            </div>
+                            @endauth
+
                         </div>
                     </div>
                 </div>
