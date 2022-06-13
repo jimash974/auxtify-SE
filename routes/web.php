@@ -41,6 +41,10 @@ Route::get('/informations/settings', function() {
     return view('informations.accountSettingsDetail');
 });
 
+Route::get('/informations/status', function() {
+    return view('informations.accountStatusDetail');
+});
+
 // Route::get('/login', function(){
 //     return view('login');
 // });
