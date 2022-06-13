@@ -42,7 +42,7 @@
                                 <li><a class="dropdown-item" href="#">Wallet</a></li>
                                 <li><a class="dropdown-item" href="#">Filter</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="/login">Logout</a></li>
                             </ul>
 
                             <div class="user-profile-text">

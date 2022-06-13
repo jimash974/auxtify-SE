@@ -10,8 +10,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <title>Auxtify</title>
-  <link rel="stylesheet" href="login.css">
+  <title>{{ $title }} - Auxtify</title>
+  {{-- <link rel="stylesheet" href="login.css"> --}}
+  <link rel="stylesheet" href="{{ url('/css/login.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400;700&family=Montserrat&display=swap"
@@ -30,15 +31,42 @@
         <div class="col-lg-7 header">
           <h1 class="font-weight-bold-py-3">Login</h1>
           <h4>Go and check today's top bidded items!</h4>
-          <form>
+
+          {{-- cek apakah di dalalm session ada key yg namanya success, kalau ada maka akan masuk ke if --}}
+          @if(session()->has('success'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+
+          @if(session()->has('loginError'))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('loginError') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+
+          <form action="/login" method="post">
+            @csrf
             <div class="form-row">
               <div class="col-lg-7">
-                <input type="Email" placeholder="Email" class="form-control1 my-3 p-4">
+                <input type="Email" placeholder="Email" class="form-control1 my-3 p-4 @error('email') is-invalid @enderror" name="email" id="email" autofocus required>
+                @error('email')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
               </div>
             </div>
             <div class="form-row memex">
               <div class="col-lg-7">
-                <input type="password" placeholder="Password" class="form-control2 my-3 p-4">
+                <input type="password" placeholder="Password" name="password" id="password" class="form-control2 my-3 p-4 @error('password') is-invalid @enderror">
+                @error('password')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
               </div>
               <div class="form-check box">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -50,10 +78,10 @@
             </div>
             <div class="form-row">
               <div class="col-lg-7">
-                <button type="button" class="btn1 mt-3 mb-5">Login</button>
+                <button type="submit" class="btn1 mt-3 mb-5">Login</button>
               </div>
             </div>
-            <p id="myid">Not a member yet? <a href="./register.html">Register Here</a></p>
+            <p id="myid">Not a member yet? <a href="/register">Register Here</a></p>
           </form>
         </div>
       </div>
