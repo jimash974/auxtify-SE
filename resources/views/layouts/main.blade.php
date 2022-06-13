@@ -38,7 +38,6 @@
           </div>
         </div>
         <div class="profile-wrapper">
-
           <div class="user-profile">
             <img src="../images/user_profile.png" style="cursor:pointer" id="dropdownMenuButton1"
               data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
