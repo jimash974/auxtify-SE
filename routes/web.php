@@ -35,6 +35,12 @@ Route::get('/categories/{category:slug}', function(Category $category){
     ]);
 })->middleware('auth');
 
+
+
+Route::get('/informations/settings', function() {
+    return view('informations.accountSettingsDetail');
+});
+
 // Route::get('/login', function(){
 //     return view('login');
 // });
@@ -47,7 +53,7 @@ Route::get('/categories/{category:slug}', function(Category $category){
 // Jadi nanti middleware bakal ada di antara /login lalu ke middleware, lalu baru ke [LoginController::class, 'index']
 // hanya bisa diakses oleh user yg blm terautentikasi
 // name('login') = memberi nama route dengan nama login, ini berkaitan ketika mengakses dashboard tanpa authenticate
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware(('guest'));;
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware(('guest'));
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
