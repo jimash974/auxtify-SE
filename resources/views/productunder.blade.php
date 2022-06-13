@@ -37,17 +37,17 @@
                 <!-- <--EDIT DISINI ADICK ADICK-->
                 <div class="product-under">
                     <div class="img-product">
-                        <img src="../images/productunder.png" width="250px" id="under-img" alt="error gais">
+                        <img src="../images/{{ $item->gambar }}" width="250px" id="under-img" alt="error gais">
                     </div>
                     <div class="midcontent">
 
                         <div class="price">
-                            <h3 style="font-size: 30px;font-weight: bold;">Chain Decor Buckle<br>Belt</h3>
-                            <p style="font-size: 20px; opacity: 0.55"><u>AKSESORIS</u></p>
+                            <h3 style="font-size: 30px;font-weight: bold;">{{ $item->judul }}</h3>
+                            <p style="font-size: 20px; opacity: 0.55"><u>{{ $item->category->name }}</u></p>
                             <h3 style="font-size: 20px;">Start Price :</h3>
-                            <h3 style="font-size: 20px;">Rp 30.000,-</h3>
+                            <h3 style="font-size: 20px;">Rp {{ $item->price }},-</h3>
                             <h3 style="font-size: 20px;">Current Bid :</h3>
-                            <h3 style="font-size: 20px;">Rp 42.000,-</h3>
+                            <h3 style="font-size: 20px;">Rp {{ $item->bid }},-</h3>
                         </div>
                         <div class="button">
                             <!-- <h1>123123123</h1>
@@ -55,7 +55,7 @@
                             <h1>123123123</h1>
                             <h1>123123123</h1> -->
                             <button type="button" class="btn btn-outline-warning" id="buttonbid">BUY NOW :<br>Rp
-                                80.000,-</button>
+                                {{ $item->buyNow }},-</button>
                             <button type="button" class="btn btn-outline-warning" id="buttontime">Time Remaining :<br>
                                 <b>0 : 35 : 29</b></button>
                         </div>
@@ -94,11 +94,7 @@
                         <div class="detail">
                             <u> Deskripsi Produk: </u>
                             <div class="descript-material">
-                                belt free rantai <br>
-                                bahan biasa <br>
-                                lebar : 4cm <br>
-                                panjang : 98cm <br>
-                                realpict
+                                {!! $item->deskripsi !!}
                             </div>
                             <div style="clear: both;"></div>
                         </div>

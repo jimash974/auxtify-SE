@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [ItemControllers::class, 'index']);
 
-Route::get('/ProductDetail/{Item:slug}', [ItemControllers::class, 'show'])->middleware('auth');
+Route::get('/ProductDetail/{item:slug}', [ItemControllers::class, 'show'])->middleware('auth');
 
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('Category', [

@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Actor&family=Poppins:wght@300;600;700&display=swap"
         rel="stylesheet">
     <link rel="shortcut icon" href="../images/auxtify_logo 1.ico" type="image/x-icon">
-    <title>Dashboard - Auxtify</title>
+    <title>{{ $title }} - Auxtify</title>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
 
                             @auth
                             <div class="user-profile-text fs-5" style="width: 150px" >
-                                {{ auth()->user()->name }}
+                                {{ auth()->user()->username }}
                             </div>
                             @else
                             <div class="user-profile-text fs-5" style="width: 150px" >
