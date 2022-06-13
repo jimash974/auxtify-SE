@@ -42,7 +42,7 @@
                                         <li><a class="dropdown-item" href="#">Watchlist</a></li>
                                         <li><a class="dropdown-item" href="#">Wallet</a></li>
                                         <li><a class="dropdown-item" href="#">Filter</a></li>
-                                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                                        <li><a class="dropdown-item" href="/information/settings/{{ auth()->user()->username }}">Settings</a></li>
                                         <li>
                                             <form action="/logout" method="post">
                                                 @csrf

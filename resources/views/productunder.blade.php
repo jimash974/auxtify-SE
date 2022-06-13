@@ -64,17 +64,19 @@
 
                     </div>
                 </div>
-                <div class="bidding">
-                    <button id="btn-rf"><img src="../images/Refresh.png" alt="refresh button"></button>
-                    <div class="bidrange">
-                        <button class="changebid">-</button>
-                        <div id="bidvalue">
-                            <h4>55.000</h4>
-                        </div>
-                        <button class="changebid">+</button>
+                <form action="/ProductDetail/{{ $item->slug }}" method="post">
+                    @csrf
+                    <div class="bidding">
+                            <button id="btn-rf"><img src="../images/Refresh.png" alt="refresh button"></button>
+                            <div class="bidrange">
+                                <button class="changebid">-</button>
+                                <input type="text" class="bidvalue" value="{{ $item->bid }}">
+                                <button class="changebid">+</button>
+                            </div>
+                            <button type="submit" class="btn btn-outline-dark" id="bidbid">BID ITEM</button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark" id="bidbid">BID ITEM</button>
-                </div>
+                </form>
+
 
                 <div class="description">
                     <div class="olshop">
