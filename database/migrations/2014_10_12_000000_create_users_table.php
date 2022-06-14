@@ -23,7 +23,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->integer('saldo');
-            $table->string('title');
+            $table->string('title')->default('bidder');
         });
     }
 
