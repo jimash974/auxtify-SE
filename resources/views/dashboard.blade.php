@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('contentFill')
 <link rel="stylesheet" href="{{ url('/css/dashboard.css') }}">
+<link rel="stylesheet" href="{{ url('/css/navbar.css') }}">
 
     <div class="content">
         <div class="sidebar">
@@ -31,7 +32,7 @@
                 </a>
             </div>
         </div>
-        
+
         <div class="main-content">
             <div class="container">
                 <!-- EDIT DISINI -->
@@ -42,7 +43,7 @@
                             @else
                             CANTIK DAN GANTENG
                             @endauth
-                            
+
                             <br>What are you
                             looking for today?</strong></p>
 
@@ -52,103 +53,15 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-            
+
                     @if(session()->has('error'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             {{ session('error') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    @endif                
+                    @endif
                 </div>
-                <div class="wrapper">             
-                    {{-- @for ($x = 1; $x <= 6; $x+=3) 
-                        <div class="row">
-                            <div class="col product-reg">
-                                <div class="category"><a href="/categories/{{ $Items->find($x)->category->slug }}">{{ $Items->find($x)->category->name }}</a></div>
-                                <div class="product-title">{{ $Items->find($x)->judul }}</div>
-                                <div class="product-img"><img src="../images/{{ $Items->find($x)->gambar }}" alt="cloth"></div>
-                                <div class="product-details d-flex justify-content-between">
-                                    <div class="prices">
-                                        <div class="starting-price">
-                                            <p class="my-0" style="font-weight:bold">Start Price:</p>
-                                            <div class="start-price">Rp. {{ $Items->find($x)->price }}</div>
-                                        </div>
-                                        <div class="buy-now">
-                                            <p class="my-0" style="font-weight:bold">Buy Now:</p>
-                                            <div class="buy-price">Rp. {{ $Items->find($x)->buyNow }}</div>
-                                        </div>
-                                    </div>
-                                    <div class="right my-1">
-                                        <div class="time-remaining">
-                                            <p class="my-0" style="font-weight:bold; font-size: 15px;">Time Remaining:</p>
-                                            <div class="time" style="font-size: 20px;">4:05:30</div>
-                                        </div>
-                                        <div class="more-button float-end">
-                                            <a href="ProductDetail/{{ $Items->find($x)->slug }}"><button><img src="../images/Expand More.png" alt="more"></button></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col product-under">
-                                <div class="category"><a href="/categories/{{ $Items->find($x+1)->category->slug }}">{{ $Items->find($x+1)->category->name }}</a></div>
-                                <div class="product-title">{{ $Items->find($x+1)->judul }}</div>
-                                <div class="product-img"><img src="../images/{{ $Items->find($x+1)->gambar }}" alt="pants"></div>
-                                <div class="product-details d-flex justify-content-between">
-                                    <div class="prices">
-                                        <div class="starting-price">
-                                            <p class="my-0" style="font-weight:bold">Start Price:</p>
-                                            <div class="start-price">Rp. {{ $Items->find($x+1)->price }}</div>
-                                        </div>
-                                        <div class="buy-now">
-                                            <p class="my-0" style="font-weight:bold">Buy Now:</p>
-                                            <div class="buy-price">Rp. {{ $Items->find($x+1)->buyNow }}</div>
-                                        </div>
-                                    </div>
-                                    <div class="right my-1">
-                                        <div class="time-remaining my-1">
-                                            <p class="my-0" style="font-weight:bold; font-size: 15px;">Time Remaining:</p>
-                                            <div class="time" style="font-size: 20px;">0:35:30</div>
-                                        </div>
-                                        <div class="more-button float-end">
-                                            <a href="ProductDetail/{{ $Items->find($x+1)->slug }}"><button><img src="../images/Expand More.png" alt="more"></button></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col product-exp">
-                                <div class="category"><a href="/categories/{{ $Items->find($x+2)->category->slug }}">{{ $Items->find($x+2)->category->name }}</a></div>
-                                <div class="product-title">{{ $Items->find($x+2)->judul }}</div>
-                                <div class="product-img"><img src="../images/{{ $Items->find($x+2)->gambar }}" alt="shoes"></div>
-                                <div class="product-details d-flex justify-content-between">
-                                    <div class="prices">
-                                        <div class="starting-price">
-                                            <p class="my-0" style="font-weight:bold">Start Price:</p>
-                                            <div class="start-price">Rp. {{ $Items->find($x+2)->price }}-</div>
-                                        </div>
-                                        <div class="buy-now">
-                                            <p class="my-0" style="font-weight:bold">Buy Now:</p>
-                                            <div class="buy-price">Rp. {{ $Items->find($x+2)->buyNow }}</div>
-                                        </div>
-                                    </div>
-                                    <div class="right my-1">
-                                        <div class="time-remaining my-1">
-                                            <p class="my-0" style="font-weight:bold; font-size: 15px;">Time Remaining:</p>
-                                            <div class="time" style="font-size: 20px;">EXPIRED</div>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <p class="m-0" style="width: fit-content">Final Bid:</p>
-                                            <div class="more-button float-end">
-                                                <a href="ProductDetail/{{ $Items->find($x+2)->slug }}"><button><img src="../images/Expand More.png" alt="more"></button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    @endfor --}}
+                <div class="wrapper">
                     @foreach($Items as $item)
                     <div class="product-reg">
                         <div class="category">

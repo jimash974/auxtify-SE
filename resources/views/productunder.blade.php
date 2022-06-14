@@ -1,6 +1,8 @@
 @extends('layouts.main')
 @section('contentFill')
 <link rel="stylesheet" href="{{ asset ('css/productunder.css') }}">
+<link rel="stylesheet" href="{{ url('/css/navbar.css') }}">
+
     <div class="content">
         <div class="sidebar">
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width:16vw;background-color: #203239">

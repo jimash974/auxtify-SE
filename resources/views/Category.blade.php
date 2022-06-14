@@ -2,6 +2,7 @@
 @section('contentFill')
 {{-- <link rel="stylesheet" href="{{ url('/css/dashboard.css') }}"> --}}
 <link rel="stylesheet" href="{{ url('/css/category.css') }}">
+<link rel="stylesheet" href="{{ url('/css/navbar.css') }}">
 
     <div class="content">
         <div class="sidebar">

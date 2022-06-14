@@ -3,83 +3,6 @@ body {
     min-height: -webkit-fill-available;
 }
 
-.search input {
-    height: 55px;
-    text-indent: 35px;
-    border-radius: 15px;
-}
-
-nav .container-fluid {
-    justify-content: unset;
-}
-
-.navbar form {
-    margin-left: 20px;
-}
-
-.search-bar {
-    width: 800px !important;
-}
-
-.search .fa-search {
-    position: absolute;
-    top: 33px;
-    margin-left: 13px
-}
-
-.form-control:focus,
-.btn:focus {
-    border-color: #cccccc;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-.search button:hover {
-    color: #fff;
-}
-
-.search button {
-    margin-left: -160px;
-    background-color: #203239;
-    color: #fff;
-    width: 150px;
-    height: 45px;
-    font-weight: 600;
-    margin-top: 5px;
-    border-radius: 10px;
-}
-
-.navbar {
-    background-color: #FF7527;
-    height: 90px;
-}
-
-.profile-wrapper {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-    position: relative;
-}
-
-
-.user-profile-text {
-    font-size: 16px;
-    position: absolute;
-    right: 70px;
-    width: max-content;
-    top: 0;
-}
-
-.user-profile-text h4 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0;
-}
-
-.nav-item {
-    padding-top: 20px;
-}
-
 .content {
     display: flex;
     background-color: #EEEDDE;
@@ -150,7 +73,7 @@ footer .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
-  }
+}
 
 .col {
     margin: 10px 40px;
@@ -163,16 +86,16 @@ footer .container {
 .wrapper button {
     background: none;
     border: none;
-  }
+}
 
-  .product-reg {
+.product-reg {
     background-color: rgba(255, 117, 39, 0.5);
     margin: 10px 40px;
     border-radius: 25px;
     width: 80%;
     padding: 15px;
     height: 400px !important;
-  }
+}
 
 .product-under {
     background-color: rgba(255, 117, 39, 0.5);
@@ -187,8 +110,11 @@ footer .container {
 .category {
     text-decoration: underline;
     font-size: 15px;
-    /* color: black; */
-    opacity: 0.5;
+    font-weight: bold;
+}
+
+.category a {
+    color: #224972;
 }
 
 .product-title {
