@@ -2,21 +2,21 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Actor&family=Poppins:wght@300;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="shortcut icon" href="../images/auxtify_logo 1.ico" type="image/x-icon">
-    <title>{{ $title }} - Auxtify</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Actor&family=Poppins:wght@300;600;700&display=swap"
+      rel="stylesheet">
+  <link rel="shortcut icon" href="../images/auxtify_logo 1.ico" type="image/x-icon">
+  <title>{{ $title }} - Auxtify</title>
 </head>
 
 <body>
@@ -38,6 +38,7 @@
           </div>
         </div>
         <div class="profile-wrapper">
+
           <div class="user-profile">
             <img src="../images/user_profile.png" style="cursor:pointer" id="dropdownMenuButton1"
               data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
@@ -49,7 +50,7 @@
             <li><a class="dropdown-item" href="#">Filter</a></li>
             <li><a class="dropdown-item" href="/information/settings/{{ auth()->user()->username }}">Settings</a></li>
             <li>
-              <form action="/logout" method="post" class="ms-0">
+              <form action="/logout" method="post">
                 @csrf
                 <button type="submit" class="dropdown-item">
                     Logout
@@ -79,62 +80,62 @@
       </div>
       </div>
     </nav>
-  </header> 
-  <!-- Navbar End --> 
+  </header>
+  <!-- Navbar End -->
 
 
-    <div class="sidebar">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width:16vw;background-color: #203239">
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item top">
-                    <a href="#" class="nav-link text-white" aria-current="page">
-                        <img src="../images/Paper.png" alt="paper">
-                        Category
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">
-                        <img src="../images/Alarmclock.png" alt="error gais">
-                        Ending Soon
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">
-                        <img src="../images/lightning_ring.png" alt="error gais">
-                        Rising Fast
-                    </a>
-                </li>
-            </ul>
+  <div class="sidebar">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width:16vw;background-color: #203239">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item top">
+          <a href="#" class="nav-link text-white" aria-current="page">
+            <img src="../images/Paper.png" alt="paper">
+            Category
+          </a>
+        </li>
+          <li class="nav-item">
             <a href="#" class="nav-link text-white">
-                <img src="../images/Chat_alt_3.png" alt="error gais">
-                Help & Support
+              <img src="../images/Alarmclock.png" alt="error gais">
+              Ending Soon
             </a>
-        </div>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link text-white">
+              <img src="../images/lightning_ring.png" alt="error gais">
+              Rising Fast
+            </a>
+          </li>
+      </ul>
+      <a href="#" class="nav-link text-white">
+        <img src="../images/Chat_alt_3.png" alt="error gais">
+          Help & Support
+      </a>
     </div>
+  </div>
 
-        <div class="barrier">
-            @yield('contentFill')
-        </div>
-       
-
-    <footer>
-        <div class="container">
-            <div id="logo">
-                <img src="../images/logo_white.png" alt="Auxtify Logo">
-            </div>
-            <div id="social-media">
-                <a href="#"><img src="../images/phone.png" alt="phone"></a>
-                <a href="#" id="end"><img src="../images/mail.png" alt="mail"></a>
-            </div>
-        </div>
-    </footer>
+  <div class="barrier">
+    @yield('contentFill')
+  </div>
 
 
+  <footer>
+    <div class="container">
+      <div id="logo">
+        <img src="../images/logo_white.png" alt="Auxtify Logo">
+      </div>
+      <div id="social-media">
+        <a href="#"><img src="../images/phone.png" alt="phone"></a>
+        <a href="#" id="end"><img src="../images/mail.png" alt="mail"></a>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
 
 </body>
 

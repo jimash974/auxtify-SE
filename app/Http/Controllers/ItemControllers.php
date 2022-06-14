@@ -25,7 +25,7 @@ class ItemControllers extends Controller
 
     public function update(Request $request, Item $item){
 
-        return auth()->user()->username;
+        // return auth()->user()->username;
 
         
         // $validatedData = $request->validate(([
