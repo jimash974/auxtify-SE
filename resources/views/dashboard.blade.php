@@ -39,6 +39,20 @@
                     <p style="font-size: 36px; font-family: Actor, 'Sans serif';"><strong>Welcome Back,
                             Susi!<br>What are you
                             looking for today?</strong></p>
+
+                    @if(session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+            
+                    @if(session()->has('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif                
                 </div>
                 <div class="wrapper">             
                     {{-- @for ($x = 1; $x <= 6; $x+=3) 

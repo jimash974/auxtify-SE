@@ -60,8 +60,11 @@
 
                     </div>
                 </div>
+
                 <form action="/ProductDetail/{{ $item->slug }}" method="post">
                     @csrf
+                    @method('PUT')
+
                     <div class="bidding">
                             <button id="btn-rf"><img src="../images/Refresh.png" alt="refresh button"></button>
                             <div class="bidrange">

@@ -54,7 +54,7 @@ Route::get('/informations/settings', function() {
 // Jadi nanti middleware bakal ada di antara /login lalu ke middleware, lalu baru ke [LoginController::class, 'index']
 // hanya bisa diakses oleh user yg blm terautentikasi
 // name('login') = memberi nama route dengan nama login, ini berkaitan ketika mengakses dashboard tanpa authenticate
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware(('guest'));
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -66,4 +66,4 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/information/settings/{user:username}', [informationController::class, 'settings']);
 
-Route::post('/ProductDetail/{item:slug}', [ItemControllers::class, 'update']);
+Route::put('/ProductDetail/{item:slug}', [ItemControllers::class, 'update']);

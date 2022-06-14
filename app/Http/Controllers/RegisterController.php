@@ -33,6 +33,8 @@ class RegisterController extends Controller
         // Kalau validasi di atas lolos, maka yg dibawah ini akan dijalankan
         // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['saldo'] = 500000;
+        // return $validatedData;
 
         User::create($validatedData);
 
