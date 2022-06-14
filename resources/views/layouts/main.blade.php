@@ -80,7 +80,7 @@
       </div>
     </nav>
   </header> 
-  <!-- Navbar End -->
+  <!-- Navbar End --> 
 
 
     <div class="sidebar">
