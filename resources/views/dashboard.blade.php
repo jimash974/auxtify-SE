@@ -37,7 +37,13 @@
                 <!-- EDIT DISINI -->
                 <div id="greetings">
                     <p style="font-size: 36px; font-family: Actor, 'Sans serif';"><strong>Welcome Back,
-                            Susi!<br>What are you
+                            @auth
+                            {{ auth()->user()->name }}
+                            @else
+                            CANTIK DAN GANTENG
+                            @endauth
+                            
+                            <br>What are you
                             looking for today?</strong></p>
 
                     @if(session()->has('success'))
