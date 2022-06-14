@@ -75,19 +75,26 @@ body {
     height: 90px;
 }
 
-.user-profile {
-    position: absolute;
-    right: 0;
+.profile-wrapper {
+    display: flex;
+    align-items: center;
     margin-right: 20px;
-    padding-top: 3px;
+    position: relative;
 }
 
+
 .user-profile-text {
-    font-size: 24px;
+    font-size: 16px;
     position: absolute;
-    left: -160px;
+    right: 70px;
+    width: max-content;
     top: 0;
-    padding-top: 10px;
+}
+
+.user-profile-text h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0;
 }
 
 .nav-item {
