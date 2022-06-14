@@ -34,8 +34,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link active" href="/dashboard">Home</a>
-          <a class="nav-item nav-link account" href="./login.html">Account</a>
           <a class="nav-item nav-link" href="#">About Us</a>
+          <a href="#" class="btn btn-login">Login</a>
         </div>
       </div>
     </div>
