@@ -48,7 +48,14 @@
               <li><a class="dropdown-item" href="#">Wallet</a></li>
               <li><a class="dropdown-item" href="#">Filter</a></li>
               <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li>
+                <form action="/logout" method="post" class="ms-0">
+                  @csrf
+                  <button type="submit" class="dropdown-item">
+                      Logout
+                  </button>
+                </form>
+              </li>
           </ul>
         </div>
       </div>
@@ -101,16 +108,16 @@
       <div class="right-bottom">
         <form action="#" method="post">
           <label for="name">Name</label>
-          <input type="text" name="name" id="name" class="form-control mb-3" value="">
+          <input type="text" name="name" id="name" class="form-control mb-3" value="{{ $user->name }}">
 
           <label for="title">Title</label>
-          <input type="text" name="title" id="title" class="form-control mb-3" value="title">
+          <input type="text" name="title" id="title" class="form-control mb-3" value="Mr/Mrs">
 
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" class="form-control mb-3" value="">
+          <input type="email" name="email" id="email" class="form-control mb-3" value="{{ $user->email }}">
 
-          <label for="address">Address</label>
-          <input type="text" name="address" id="address" class="form-control mb-3" value="">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" class="form-control mb-3" value="{{ $user->username }}">
 
           <div class="form-btn-group d-flex justify-content-end">
             <button type="reset" class="btn btn-light btn-cancel me-4">Cancel</button>

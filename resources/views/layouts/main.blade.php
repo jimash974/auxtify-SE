@@ -21,59 +21,66 @@
 
 <body>
 
-    <header class="navbar">
-        <!-- Navbar Start -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand m-lg-3" href="\dashboard"><img src="../images/logo.svg" alt="Auxtify Logo"></a>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <form class="search d-flex">
-                            <img class="fa fa-search" src="../images/Location.png" alt="location logo"> <input
-                                type="text" class="form-control search-bar"
-                                placeholder="Sepatu Converse Chuck 70s ukuran...."> <button class="btn">Search</button>
-                        </form>
-                        <div class="user-profile">
-                            <img src="../images/user_profile.png" style="cursor:pointer" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                                    @auth
-                                        <li><a class="dropdown-item" href="#">Notifications</a></li>
-                                        <li><a class="dropdown-item" href="#">Watchlist</a></li>
-                                        <li><a class="dropdown-item" href="#">Wallet</a></li>
-                                        <li><a class="dropdown-item" href="#">Filter</a></li>
-                                        <li><a class="dropdown-item" href="/information/settings/{{ auth()->user()->username }}">Settings</a></li>
-                                        <li>
-                                            <form action="/logout" method="post">
-                                                @csrf
-                                                <button type="submit" class="dropdown-item">
-                                                    Logout
-                                                </button>
-                                            </form>
-                                            
-                                        </li>
-                                    @else
-                                        <li><a class="dropdown-item" href="/login">Login</a></li>
-                                    @endauth
-                                </ul>
-
-                            @auth
-                            <div class="user-profile-text fs-5" style="width: 150px" >
-                                {{ auth()->user()->username }}
-                            </div>
-                            @else
-                            <div class="user-profile-text fs-5" style="width: 150px" >
-                                Guest
-                            </div>
-                            @endauth
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Navbar End -->
+  <header class="navbar">
+    <!-- Navbar Start -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand m-lg-3" href="\dashboard"><img src="../images/logo.svg" alt="Auxtify Logo"></a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <form class="search d-flex">
+              <img class="fa fa-search" src="../images/Location.png" alt="location logo">
+              <input
+                  type="text" class="form-control search-bar"
+                  placeholder="Sepatu Converse Chuck 70s ukuran...."> 
+              <button class="btn">Search</button>
+            </form>
+          </div>
+        </div>
+        <div class="profile-wrapper">
+          <div class="user-profile">
+            <img src="../images/user_profile.png" style="cursor:pointer" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            @auth
+            <li><a class="dropdown-item" href="#">Notifications</a></li>
+            <li><a class="dropdown-item" href="#">Watchlist</a></li>
+            <li><a class="dropdown-item" href="#">Wallet</a></li>
+            <li><a class="dropdown-item" href="#">Filter</a></li>
+            <li><a class="dropdown-item" href="/information/settings/{{ auth()->user()->username }}">Settings</a></li>
+            <li>
+              <form action="/logout" method="post" class="ms-0">
+                @csrf
+                <button type="submit" class="dropdown-item">
+                    Logout
+                </button>
+              </form>
+            </li>
+            @else
+            <li>
+              <a class="dropdown-item" href="/login">Login</a>
+            </li>
+            @endauth
+          </ul>
+          
+          @auth
+          <div class="user-profile-text">
+            <h4>{{ auth()->user()->username }}</h4>
+            <p>Balance: Rp 5.000</p>
+          </div>
+          @else
+          <div class="user-profile-text">
+            <h4>Guest</h4>
+            <p>Balance: Rp 5.000</p>
+          </div>
+          @endauth
+          
+        </div>
+      </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Navbar End -->
 
 
     <div class="sidebar">

@@ -50,10 +50,6 @@
                             <h3 style="font-size: 20px;">Rp {{ $item->bid }},-</h3>
                         </div>
                         <div class="button">
-                            <!-- <h1>123123123</h1>
-                            <h1>123123123</h1>
-                            <h1>123123123</h1>
-                            <h1>123123123</h1> -->
                             <button type="button" class="btn btn-outline-warning" id="buttonbid">BUY NOW :<br>Rp
                                 {{ $item->buyNow }},-</button>
                             <button type="button" class="btn btn-outline-warning" id="buttontime">Time Remaining :<br>
@@ -70,7 +66,7 @@
                             <button id="btn-rf"><img src="../images/Refresh.png" alt="refresh button"></button>
                             <div class="bidrange">
                                 <button class="changebid">-</button>
-                                <input type="text" class="bidvalue" value="{{ $item->bid }}">
+                                <input type="text" class="bidvalue" value="{{ $item->bid }}" id="bid" name="bid">
                                 <button class="changebid">+</button>
                             </div>
                             <button type="submit" class="btn btn-outline-dark" id="bidbid">BID ITEM</button>

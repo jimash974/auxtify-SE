@@ -66,4 +66,4 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/information/settings/{user:username}', [informationController::class, 'settings']);
 
-Route::post('/ProductDetail/{item:slug}', [ItemControllers::class, 'store']);
+Route::post('/ProductDetail/{item:slug}', [ItemControllers::class, 'update']);

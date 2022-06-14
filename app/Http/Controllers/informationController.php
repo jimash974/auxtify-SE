@@ -9,11 +9,11 @@ class informationController extends Controller
 {
     public function settings(User $user){
 
-        return view('informations.accountSettingsDetail');
+        // return view('informations.accountSettingsDetail');
 
-        // return view('informations.accountSettingsDetail',[
-        //     "title" => "Settings",
-        //     "user" => $user
-        // ]);
+        return view('informations.accountSettingsDetail',[
+            "title" => "Settings",
+            "user" => $user
+        ]);
     }
 }

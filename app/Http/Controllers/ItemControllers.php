@@ -22,4 +22,16 @@ class ItemControllers extends Controller
             "item" => $item
         ]);
     }
+
+    // public function store(Request $request, Item $item){
+
+    //     $validatedData = $request->validate(([
+    //         'bid' => 'required'
+    //     ]));
+
+    //     if($request->bid < $item->bid){
+    //         Item::
+    //     }
+    // }
 }
+
