@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules\Unique;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Unique;
+use Illuminate\Session\Middleware\StartSession;
+use DB;
+
 // use Illuminate\Session\Middleware\StartSession::class;
 
 class RegisterController extends Controller
@@ -33,10 +37,12 @@ class RegisterController extends Controller
         // Kalau validasi di atas lolos, maka yg dibawah ini akan dijalankan
         // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['saldo'] = 500000;
+        // return $validatedData;
+
+        // dd($validatedData['username']);
 
         User::create($validatedData);
-
-        // $request->session()->flash('success', 'Resgistration Successfull !!, please loginnnnnnn !!!!!!');
 
         return redirect('/login')->with('success', 'Resgistration Successfull !!, please loginnnnnnn !!!!!!');
 

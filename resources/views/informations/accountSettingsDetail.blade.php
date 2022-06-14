@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Actor&family=Poppins:wght@300;600;700&display=swap"
         rel="stylesheet">
-    <link rel="shortcut icon" href="../images/auxtify_logo 1.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url('/images/auxtify_logo 1.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url('/css/accountSettingsDetail.css') }}">
     <title>Account Settings - Auxtify</title>
 </head>
@@ -25,7 +25,7 @@
   <header>
     <nav class="navbar p-2 px-4 d-flex justify-content-between align-items-center">
       <div class="left">
-        <a href="/dashboard"><img src="../images/Home_duotone_line.png" alt=""></a>
+        <a href="/dashboard"><img src="{{ url('/images/Home_duotone_line.png') }}" alt=""></a>
       </div>
       <div class="mid">
         <ul class="d-flex justify-content-around align-items-center">
@@ -40,7 +40,7 @@
           <p>Balance: Rp 5.000</p>
         </div>
         <div class="user-profile">
-          <img src="../images/user_profile.png" style="cursor:pointer" id="dropdownMenuButton1"
+          <img src="{{ url('/images/user_profile.png') }}" style="cursor:pointer" id="dropdownMenuButton1"
               data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="#">Notifications</a></li>
@@ -48,7 +48,14 @@
               <li><a class="dropdown-item" href="#">Wallet</a></li>
               <li><a class="dropdown-item" href="#">Filter</a></li>
               <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li>
+                <form action="/logout" method="post" class="ms-0">
+                  @csrf
+                  <button type="submit" class="dropdown-item">
+                      Logout
+                  </button>
+                </form>
+              </li>
           </ul>
         </div>
       </div>
@@ -72,7 +79,7 @@
     <div class="settings-left">
       <h1 class="mb-5">Profile</h1>
       <div class="profile-settings">
-        <img src="../images/user_profile.png" alt="">
+        <img src="{{ url('/images/user_profile.png') }}" alt="">
         <h1 class="profile-name fs-3 fw-bold">Susi Susianti</h1>
         <h3 class="user-type fw-bold">USER</h3>
       </div>
@@ -101,16 +108,16 @@
       <div class="right-bottom">
         <form action="#" method="post">
           <label for="name">Name</label>
-          <input type="text" name="name" id="name" class="form-control mb-3" value="">
+          <input type="text" name="name" id="name" class="form-control mb-3" value="{{ $user->name }}">
 
           <label for="title">Title</label>
-          <input type="text" name="title" id="title" class="form-control mb-3" value="">
+          <input type="text" name="title" id="title" class="form-control mb-3" value="Mr/Mrs">
 
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" class="form-control mb-3" value="">
+          <input type="email" name="email" id="email" class="form-control mb-3" value="{{ $user->email }}">
 
-          <label for="address">Address</label>
-          <input type="text" name="address" id="address" class="form-control mb-3" value="">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" class="form-control mb-3" value="{{ $user->username }}">
 
           <div class="form-btn-group d-flex justify-content-end">
             <button type="reset" class="btn btn-light btn-cancel me-4">Cancel</button>

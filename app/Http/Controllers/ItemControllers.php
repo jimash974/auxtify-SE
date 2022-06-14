@@ -22,4 +22,33 @@ class ItemControllers extends Controller
             "item" => $item
         ]);
     }
+
+    public function update(Request $request, Item $item){
+
+        // return auth()->user()->username;
+
+        
+        // $validatedData = $request->validate(([
+        //     'bid' => 'required'
+        // ]));
+
+        $this->validate($request, [
+            'bid'     => 'required'
+        ]);
+
+
+        if($request->bid > $item->bid){
+            $item->update([
+                'bid' => $request->bid
+            ]);
+            return redirect('/dashboard')->with('success', 'Bid Berhasil ditambahkan!');
+        }
+        else{
+            return redirect('/dashboard')->with('error', 'Data Gagal ditambahkan!');
+        }
+
+        // return redirect('/login')->with('success', 'Resgistration Successfull !!, please loginnnnnnn !!!!!!');
+
+    }
 }
+
