@@ -40,9 +40,8 @@
                         <img src="../images/{{ $item->gambar }}" width="250px" id="under-img" alt="error gais">
                     </div>
                     <div class="midcontent">
-
+                        <h3 style="font-size: 30px;font-weight: bold; margin-left: 8%;">{{ $item->judul }}</h3>
                         <div class="price">
-                            <h3 style="font-size: 30px;font-weight: bold;">{{ $item->judul }}</h3>
                             <p style="font-size: 20px; opacity: 0.55"><u>{{ $item->category->name }}</u></p>
                             <h3 style="font-size: 20px;">Start Price :</h3>
                             <h3 style="font-size: 20px;">Rp {{ $item->price }},-</h3>
@@ -69,7 +68,7 @@
                             <button id="btn-rf"><img src="../images/Refresh.png" alt="refresh button"></button>
                             <div class="bidrange">
                                 <button class="changebid">-</button>
-                                <input type="text" class="bidvalue" value="{{ $item->bid }}" id="bid" name="bid">
+                                <input type="text" class="bidvalue text-center mx-3" value="{{ $item->bid }}" id="bid" name="bid">
                                 <button class="changebid">+</button>
                             </div>
                             <button type="submit" class="btn btn-outline-dark" id="bidbid">BID ITEM</button>
@@ -120,4 +119,22 @@
 
 
     <hr id="separator-footer">
+
+    <script>
+        const changeBidBtn = document.querySelectorAll('.changebid');
+        let bidValue = document.querySelector('.bidvalue').value;
+        
+        changeBidBtn.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (this.innerHTML == '+') {
+                    bidValue += 100000;
+                } else {
+                    bidValue -= 100000;
+                }
+                document.querySelector('.bidvalue').value = bidValue;
+            });
+        });
+
+    </script>
 @endsection

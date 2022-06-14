@@ -1,6 +1,7 @@
 body {
     font-family: Poppins, "Sans Serif";
     min-height: -webkit-fill-available;
+    box-sizing: border-box;
 }
 
 .img-product{
@@ -17,7 +18,7 @@ body {
 }
 
 .button{
-    padding-top: 12%;
+    margin-top: 12%;
     margin-left: 50%;
 }
 
@@ -193,10 +194,10 @@ footer .container {
 
 .bidding{
     /* border: 1px solid red; */
-    width: 55%;
+    width: 70%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 20px;
 }
 #btn-rf{
@@ -207,7 +208,6 @@ footer .container {
     display: flex;
     justify-content: space-between;
     /* border: 1px solid blue; */
-    width: 400px;
 }
 #bidvalue{
     background-color: white;
