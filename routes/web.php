@@ -69,5 +69,10 @@ Route::post('/register', [RegisterController::class, 'store']);
 // Route::get('/dashboard', [ItemControllers::class, 'index'])->middleware('auth');
 
 Route::get('/information/settings/{user:username}', [informationController::class, 'settings']);
+Route::get('/information/status/{user:username}', [informationController::class, 'status']);
+Route::post('/information/status/{user:username}', [informationController::class, 'TopUp']);
+// Route::post('/information/status', function(){
+//     return view()
+// });
 
 Route::put('/ProductDetail/{item:slug}', [ItemControllers::class, 'update']);

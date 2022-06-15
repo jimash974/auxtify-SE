@@ -51,4 +51,5 @@ class User extends Authenticatable
     public function UserDetail(){
         return $this->belongsTo(UserDetail::class);
     }
+
 }

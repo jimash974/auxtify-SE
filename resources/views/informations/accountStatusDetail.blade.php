@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Actor&family=Poppins:wght@300;600;700&display=swap"
         rel="stylesheet">
-    <link rel="shortcut icon" href="../images/auxtify_logo 1.ico" type="image/x-icon">
+    <link rel="shortcut icon" href=" {{ url('/images/auxtify_logo 1.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url('/css/accountStatusDetail.css') }}">
     <title>Account Status - Auxtify</title>
 </head>
@@ -36,11 +36,17 @@
       </div>
       <div class="profile-wrapper d-flex align-items-center">
         <div class="user-profile-text">
-          <h4>Susi Susianti</h4>
-          <p>Balance: Rp 5.000</p>
+          @auth
+            <h4>{{ auth()->user()->username}}</h4>
+            <p>Balance: Rp {{ auth()->user()->saldo }}</p>
+          @else
+            <h4>Guest</h4>
+            <p>-</p>
+          @endauth
+
       </div>
         <div class="user-profile">
-          <img src="../images/user_profile.png" style="cursor:pointer" id="dropdownMenuButton1"
+          <img src="{{ url('/images/user_profile.png') }}" style="cursor:pointer" id="dropdownMenuButton1"
               data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="#">Notifications</a></li>
@@ -72,7 +78,7 @@
   <div class="settings-content d-flex justify-content-around py-5">
     <div class="settings-left px-5">
       <div class="name-and-type d-flex align-items-baseline">
-        <h3 class="profile-name fw-bold me-3">Susi Susianti</h3>
+        <h3 class="profile-name fw-bold me-3">{{ auth()->user()->name }}</h3>
         <h4 class="user-type fw-bold">User</h4>
       </div>
       <ul>
@@ -88,14 +94,15 @@
       <hr id="settings-separator">
       <div class="right-bottom">
         <label for="profile-name">Full Name</label>
-        <h1 id="profile-name" class="fs-3">Susi Susianti</h1>
+        <h1 id="profile-name" class="fs-3">{{ auth()->user()->name }}</h1>
 
         <label for="remaining-balance" class="mt-3">Remaining Balance</label>
-        <h1 id="remaining-balance" class="fs-3">Rp 5.000</h1>
+        <h1 id="remaining-balance" class="fs-3">Rp {{ auth()->user()->saldo }}</h1>
 
         <div class="deposit-group mt-5">
           <h2>DEPOSIT</h2>
-          <form action="" method="post">
+          <form action="/information/status/{{ auth()->user()->username }}" method="post">
+            @csrf
             <div class="form-group">
               <label for="deposit-amount">ENTER BALANCE AMOUNT:</label>
               <input type="text" name="amount" id="amount">

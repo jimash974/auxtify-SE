@@ -45,7 +45,7 @@
             @auth
             <li><a class="dropdown-item" href="#">Notifications</a></li>
             <li><a class="dropdown-item" href="#">Watchlist</a></li>
-            <li><a class="dropdown-item" href="#">Wallet</a></li>
+            <li><a class="dropdown-item" href="/information/status/{{ auth()->user()->username }}">Wallet</a></li>
             <li><a class="dropdown-item" href="#">Filter</a></li>
             <li><a class="dropdown-item" href="/information/settings/{{ auth()->user()->username }}">Settings</a></li>
             <li>
@@ -66,12 +66,12 @@
           @auth
           <div class="user-profile-text">
             <h4>{{ auth()->user()->username }}</h4>
-            <p>Balance: Rp 5.000</p>
+            <p>Balance : Rp{{ auth()->user()->saldo }}</p>
           </div>
           @else
           <div class="user-profile-text">
             <h4>Guest</h4>
-            <p>Balance: Rp 5.000</p>
+            <p>Balance: -</p>
           </div>
           @endauth
           
