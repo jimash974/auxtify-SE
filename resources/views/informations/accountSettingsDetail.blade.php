@@ -36,8 +36,17 @@
       </div>
       <div class="profile-wrapper d-flex align-items-center">
         <div class="user-profile-text">
-          <h4>Susi Susianti</h4>
-          <p>Balance: Rp 5.000</p>
+          @auth
+            <h4>{{ auth()->user()->username}}</h4>
+            @if (auth()->user()->saldo)
+              <p>Saldo : Rp. {{ auth()->user()->saldo }}</p>
+            @else
+              <p>Saldo : Rp. 0</p>
+            @endif
+          @else
+            <h4>Guest</h4>
+            <p>-</p>
+          @endauth
         </div>
         <div class="user-profile">
           <img src="{{ url('/images/user_profile.png') }}" style="cursor:pointer" id="dropdownMenuButton1"

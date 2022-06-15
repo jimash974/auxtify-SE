@@ -25,7 +25,7 @@
   <header>
     <nav class="navbar p-2 px-4 d-flex justify-content-between align-items-center">
       <div class="left">
-        <a href="/dashboard"><img src="../images/Home_duotone_line.png" alt=""></a>
+        <a href="/dashboard"><img src="/images/Home_duotone_line.png" alt=""></a>
       </div>
       <div class="mid">
         <ul class="d-flex justify-content-around align-items-center">
@@ -38,12 +38,15 @@
         <div class="user-profile-text">
           @auth
             <h4>{{ auth()->user()->username}}</h4>
-            <p>Balance: Rp {{ auth()->user()->saldo }}</p>
+            @if (auth()->user()->saldo)
+              <p>Saldo : Rp. {{ auth()->user()->saldo }}</p>
+            @else
+              <p>Saldo : Rp. 0</p>
+            @endif
           @else
             <h4>Guest</h4>
             <p>-</p>
           @endauth
-
       </div>
         <div class="user-profile">
           <img src="{{ url('/images/user_profile.png') }}" style="cursor:pointer" id="dropdownMenuButton1"

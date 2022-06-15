@@ -124,7 +124,7 @@
 
     <script>
         const changeBidBtn = document.querySelectorAll('.changebid');
-        let bidValue = document.querySelector('.bidvalue').value;
+        let bidValue = parseInt(document.querySelector('.bidvalue').value);
         
         changeBidBtn.forEach(function(btn) {
             btn.addEventListener('click', function(e) {

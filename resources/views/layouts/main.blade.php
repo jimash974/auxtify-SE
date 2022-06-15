@@ -66,7 +66,12 @@
           @auth
           <div class="user-profile-text">
             <h4>{{ auth()->user()->username }}</h4>
-            <p>Balance : Rp{{ auth()->user()->saldo }}</p>
+            @if (auth()->user()->saldo)
+            <p>Saldo : Rp. {{ auth()->user()->saldo }}</p>
+            @else
+            <p>Saldo : Rp. 0</p>
+            @endif
+            {{-- <p>Balance : Rp{{ auth()->user()->saldo }}</p> --}}
           </div>
           @else
           <div class="user-profile-text">
