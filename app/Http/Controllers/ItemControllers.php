@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Item;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class ItemControllers extends Controller
 {
     public function index(){
+        $request = Item::all();
+        $date = Carbon::now();
+        // dd($date);
+        // dd($request[0]->End_date);
+        $to = \Carbon\Carbon::parse($date);
+        $from = \Carbon\Carbon::parse($request[0]->End_date);
+        $hours = $to->diffInMinutes($from);
+        // dd($hours);
+
         return view('dashboard', [
             "title" => "DASHBOARD",
             // "Items" => Item::all()
-            "Items" => Item::with("category")->get()
+            "Items" => Item::with("category")->get(),
+            "TimeLeft" => $hours
         ]);
     }
 

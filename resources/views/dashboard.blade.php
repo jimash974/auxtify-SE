@@ -2,6 +2,9 @@
 @section('contentFill')
 <link rel="stylesheet" href="{{ url('/css/dashboard.css') }}">
 <link rel="stylesheet" href="{{ url('/css/navbar.css') }}">
+<?php 
+use Carbon\Carbon;
+?>
 
     <div class="content">
         <div class="sidebar">
@@ -63,14 +66,29 @@
                 </div>
                 <div class="wrapper">
                     @foreach($Items as $item)
-                        <div class="product-reg">
+                        <?php 
+                            $date = Carbon::now();
+                            $to = \Carbon\Carbon::parse($date);
+                            $from = \Carbon\Carbon::parse($item->End_date);
+                            $TimeLeft = $to->diffInHours($from);
+                        ?>
+                        <div class="product-reg" 
+                            @if($TimeLeft > 24)
+                                style="border: 5px white solid"                            
+                            @elseif($TimeLeft < 0)
+                                style="border: 5px black solid"
+                            @else
+                                style="border: 5px red solid"
+                            @endif
+                        >
                             <div class="category">
                                 <a href="/categories/{{ $item->category->slug }}">
                                     {{ $item->category->name }}
                                 </a>
                             </div>
                             <div class="product-title">
-                                {{ $item->judul }}
+                                {{ $item->judul }} <br>
+                                Time : {{ $TimeLeft }} Hours
                             </div>
                             <div class="product-img"><img src="../images/{{ $item->gambar }}" alt="cloth">
                             </div>
