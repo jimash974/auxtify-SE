@@ -72,13 +72,13 @@ use Carbon\Carbon;
                             $from = \Carbon\Carbon::parse($item->End_date);
                             $TimeLeft = $to->diffInHours($from);
                         ?>
-                        <div class="product-reg" 
+                        <div 
                             @if($TimeLeft > 24)
-                                style="border: 5px white solid"                            
+                                class="product-reg"                            
                             @elseif($TimeLeft < 0)
-                                style="border: 5px black solid"
+                                class="product-exp"
                             @else
-                                style="border: 5px red solid"
+                                class="product-under"
                             @endif
                         >
                             <div class="category">

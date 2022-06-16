@@ -110,6 +110,18 @@ class DatabaseSeeder extends Seeder
         'name' => 'SEPATU',
         'slug' => 'sepatu'
         ]);
+
+        User::create([
+            'name' => 'test',
+            'email' => 'test@mail.com',
+            'username' => 'testuser',
+            'password' => '$2y$10$hB7tZdE.ZcDhaXbr2iUqkugPPBd3CqiLEr8a2Cv3Bk.qEUXpp68.O',
+            'remember_token' => '',
+            'created_at' => '2020-06-17 00:00:00',
+            'updated_at' => '2020-06-17 00:00:00',
+            'saldo' => 50000,
+            'title' => 'bidder'
+        ]);
     
     }
 }
