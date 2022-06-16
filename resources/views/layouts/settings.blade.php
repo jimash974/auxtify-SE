@@ -12,7 +12,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Actor&family=Poppins:wght@300;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Actor&family=Poppins:wght@200;300;600;700&display=swap"
         rel="stylesheet">
     <link rel="shortcut icon" href="{{ url('/images/auxtify_logo 1.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="/css/settings-navbar.css">

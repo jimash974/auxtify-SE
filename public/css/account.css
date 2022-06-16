@@ -3,17 +3,18 @@
 }
 .top-bg{
     background-color: #203239;
-    height: 35vh;
+    height: 250px;
 }
 
 .main-content{
-    height: 65vh;
+    height: 550px;
     text-align: center;
     position: relative;
     display: flex;
     justify-content: center;
     background-color: #EEEDDE;
     padding: 120px;
+    font-family: Poppins;
 }
 
 .main-content img{
@@ -25,6 +26,19 @@
     border-radius: 50%;
 }
 
+#username {
+    font-size: 52px;
+}
+
+#location {
+    font-weight: 200;
+}
+
+#accountType {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
 .following-followers{
     display: flex;
 
@@ -32,15 +46,16 @@
 
 .vr{
     border: 2px solid currentColor;
-    height: 80px;
+    height: 90px;
     align-self: center;
-}
-
-.following, .followers{
-    margin: 10px 30px;
-    font-family: Poppins;
+    margin-bottom: 10px;
 }
 
 .following-followers h2{
     color: #6C6C6C;
+    font-weight: 200;
+}
+
+.following-followers h1{
+    font-weight: 600;
 }
