@@ -63,7 +63,8 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 
-Route::get('/register', [RegisterController::class, 'create'])->middleware(('guest'));
+Route::get('/register', [RegisterController::class, 'create']);
+// Route::get('/register', [RegisterController::class, 'create'])->middleware(('guest'));
 Route::post('/register', [RegisterController::class, 'store']);
 
 // Route::get('/dashboard', [ItemControllers::class, 'index'])->middleware('auth');

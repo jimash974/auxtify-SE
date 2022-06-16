@@ -27,7 +27,7 @@
 
         <div class="deposit-group mt-5">
           <h2>DEPOSIT</h2>
-          <form action="/information/status/{{ auth()->user()->username }}" method="post">
+          <form action="/informations/status/{{ auth()->user()->username }}" method="post">
             @csrf
             <div class="form-group">
               <label for="deposit-amount">ENTER BALANCE AMOUNT:</label>

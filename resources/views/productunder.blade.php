@@ -152,6 +152,23 @@
             }
             timer = setInterval(showRemaining, 1000);
         }
+
+        const bidBtn = document.querySelectorAll('.changebid');
+        let bidValue = parseInt(document.querySelector('.bidvalue').value);
+
+        bidBtn.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (this.classList.contains('changebid')) {
+                    if (this.innerHTML == '+') {
+                        bidValue += 50000;
+                    } else {
+                        bidValue -= 50000;
+                    }
+                }
+                document.querySelector('.bidvalue').value = bidValue;
+            });
+        });
     </script>
 
 

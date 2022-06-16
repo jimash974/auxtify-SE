@@ -35,7 +35,7 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link active" href="/dashboard">Home</a>
           <a class="nav-item nav-link" href="#">About Us</a>
-          <a href="#" class="btn btn-login">Login</a>
+          <a href="/login" class="btn btn-login">Login</a>
         </div>
       </div>
     </div>
