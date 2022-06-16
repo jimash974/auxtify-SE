@@ -86,3 +86,9 @@ Route::get('/categorymenu', function(Category $category){
         // 'category' => $category->name
     ]);
 })->middleware('auth');
+
+
+Route::get('/account/{user:username}', function(){
+    return view('account.index');
+});
+

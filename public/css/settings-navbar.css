@@ -50,13 +50,6 @@
   padding: 0;
 }
 
-.mid ul li:first-child {
-  padding-right: 5%;
-}
-
-.mid ul li:last-child {
-  padding-left: 5%;
-}
 
 .mid li a {
   text-decoration: none;

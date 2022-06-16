@@ -1,6 +1,6 @@
 @extends('layouts.settings')
 @section('contentFill')
-
+@include('partials.navbar-informations')
   <div class="settings-content d-flex justify-content-around py-5">
     <div class="settings-left px-5">
       <div class="name-and-type d-flex align-items-baseline">
