@@ -74,3 +74,59 @@ nav .container-fluid {
 .nav-item {
   padding-top: 20px;
 }
+
+.sidebar {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  height: -webkit-fill-available;
+  max-height: calc(-90px + 100vh);
+  position: fixed;
+}
+
+.sidebar .top {
+  margin-top: -20px;
+}
+
+#separator-footer {
+  height: 10px;
+  background-color: rgba(32, 50, 57, 0.55);
+  margin: 0;
+}
+
+
+footer {
+  background-color: #203239;
+  width: 85%;
+  height: 69px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 210px;
+  margin-right: 0;
+  padding-left: 50px;
+  position: absolute;
+  right: 0;
+}
+
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#social-media a {
+  margin-right: 30px;
+}
+
+.main-content {
+  width: 100%;
+  padding: 10px 20px;
+  margin-left: 230px;
+  display: block;
+}
+
+.content {
+  display: flex;
+  background-color: #EEEDDE;
+}

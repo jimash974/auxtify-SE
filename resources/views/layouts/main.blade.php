@@ -92,7 +92,7 @@
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width:16vw;background-color: #203239">
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item top">
-          <a href="#" class="nav-link text-white" aria-current="page">
+          <a href="/categorymenu" class="nav-link text-white" aria-current="page">
             <img src="../images/Paper.png" alt="paper">
             Category
           </a>

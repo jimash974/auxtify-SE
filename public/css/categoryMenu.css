@@ -1,0 +1,51 @@
+body {
+  overflow-y: hidden;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 1.2% 0;
+  /* transform: translateY(-50%); */
+}
+
+.product-reg {
+  background-color: rgba(255, 117, 39, 0.5);
+  margin: 10px 40px;
+  border-radius: 25px;
+  width: 80%;
+  padding: 15px;
+  min-height: 400px !important;
+  position: relative;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.product-img {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.product-img img{
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a h1 {
+  color: black;
+  transition: all 0.2s ease-in-out;
+}
+
+.product-reg:hover {
+  background-color: rgba(32, 50, 57);
+}
+
+a:hover h1{
+  color: white;
+}

@@ -77,3 +77,12 @@ Route::post('/informations/status/{user:username}', [informationController::clas
 // });
 
 Route::put('/ProductDetail/{item:slug}', [ItemControllers::class, 'update']);
+
+// route categoryMenu with title category
+Route::get('/categorymenu', function(Category $category){
+    return view('categoryMenu', [
+        'title' => $category->name,
+        // 'items' => $category->items->load('category'),
+        // 'category' => $category->name
+    ]);
+})->middleware('auth');
