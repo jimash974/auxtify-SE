@@ -1,0 +1,46 @@
+.account-content{
+    text-align: center;
+}
+.top-bg{
+    background-color: #203239;
+    height: 35vh;
+}
+
+.main-content{
+    height: 65vh;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #EEEDDE;
+    padding: 120px;
+}
+
+.main-content img{
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    width: 200px;
+    border: 5px solid #FF7527;
+    border-radius: 50%;
+}
+
+.following-followers{
+    display: flex;
+
+}
+
+.vr{
+    border: 2px solid currentColor;
+    height: 80px;
+    align-self: center;
+}
+
+.following, .followers{
+    margin: 10px 30px;
+    font-family: Poppins;
+}
+
+.following-followers h2{
+    color: #6C6C6C;
+}
