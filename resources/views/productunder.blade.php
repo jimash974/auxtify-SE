@@ -19,6 +19,18 @@
                             <h3 style="font-size: 20px;">Rp {{ $item->price }},-</h3>
                             <h3 style="font-size: 20px;">Current Bid :</h3>
                             <h3 style="font-size: 20px;">Rp {{ $item->bid }},-</h3>
+                            <br>
+
+                            @if($item->user)
+                                @if($TimeLeft <= 0 )
+                                <h5>Sold to : </h5>
+                                <h4>{{ $item->user->name }}</h4>
+                                @else
+                                <h5>Current Bidder : </h5>
+                                <h4>{{ $item->user->name }}</h4>
+                                @endif
+                            @endif
+ 
                         </div>
                         <div class="button">
                             <button type="button" class="btn btn-outline-warning" id="buttonbid">BUY NOW :<br>Rp
@@ -107,7 +119,7 @@
                 if (distance < 0) {
 
                     clearInterval(timer);
-                    document.getElementById(id).innerHTML = '<b>TUGAS SUDAH BERAKHIR</b> ';
+                    document.getElementById(id).innerHTML = '<b>TIMES UP</b> ';
                     return;
                 }
                 var days = Math.floor(distance / _day);

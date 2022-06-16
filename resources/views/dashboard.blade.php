@@ -47,7 +47,7 @@ use Carbon\Carbon;
                         <div 
                             @if($TimeLeft > 24)
                                 class="product-reg"                            
-                            @elseif($TimeLeft < 0)
+                            @elseif($TimeLeft <= 0)
                                 class="product-exp"
                             @else
                                 class="product-under"
@@ -147,7 +147,7 @@ use Carbon\Carbon;
                     if (distance < 0) {
 
                         clearInterval(timer);
-                        document.getElementById(id2).innerHTML = '<b>TUGAS SUDAH BERAKHIR</b> ';
+                        id2.innerHTML = '<b>TIMES UP</b> ';
                         return;
                     }
                     var days = Math.floor(distance / _day);
