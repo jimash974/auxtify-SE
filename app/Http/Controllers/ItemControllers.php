@@ -66,7 +66,7 @@ class ItemControllers extends Controller
             return redirect('/dashboard')->with('success', 'Bid Berhasil ditambahkan!');
         }
         else{
-            return redirect('/dashboard')->with('error', 'Data Gagal ditambahkan!');
+            return redirect('/dashboard')->with('error', 'Bid Gagal ditambahkan!');
         }
 
     }
