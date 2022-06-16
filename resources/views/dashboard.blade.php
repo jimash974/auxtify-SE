@@ -42,10 +42,11 @@ use Carbon\Carbon;
                             $date = Carbon::now();
                             $to = \Carbon\Carbon::parse($date);
                             $from = \Carbon\Carbon::parse($item->End_date);
-                            $TimeLeft = $to->diffInHours($from);
+                            $TimeLeft = $to->diffInSeconds($from, false);
+                            $HoursLeft = $to->diffInHours($from);
                         ?>
                         <div 
-                            @if($TimeLeft > 24)
+                            @if($TimeLeft > 6400)
                                 class="product-reg"                            
                             @elseif($TimeLeft <= 0)
                                 class="product-exp"
@@ -60,7 +61,7 @@ use Carbon\Carbon;
                             </div>
                             <div class="product-title">
                                 {{ $item->judul }} <br>
-                                Time : {{ $TimeLeft }} Hours
+                                Time : {{ $HoursLeft }} Hours
                             </div>
                             <div class="product-img"><img src="../images/{{ $item->gambar }}" alt="cloth">
                             </div>
@@ -99,6 +100,7 @@ use Carbon\Carbon;
                                             </button>
                                         </a>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

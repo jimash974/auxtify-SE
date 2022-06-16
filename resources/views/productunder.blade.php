@@ -33,7 +33,7 @@
  
                         </div>
                         <div class="button">
-                            <button type="button" class="btn btn-outline-warning" id="buttonbid">BUY NOW :<br>Rp
+                            <button type="button" class="btn btn-outline-warning {{ ($TimeLeft <= 0) ? 'hidden' : '' }}" id="buttonbid">BUY NOW :<br>Rp
                                 {{ $item->buyNow }},-</button>
                             <button type="button" class="btn btn-outline-warning" id="buttontime">Time Remaining :<br>
                                 <b id="countdown"></b></button>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <form action="/ProductDetail/{{ $item->slug }}" method="post">
+                <form action="/ProductDetail/{{ $item->slug }}" method="post" class=" {{ ($TimeLeft <= 0) ? 'hidden' : '' }} ">
                     @csrf
                     @method('PUT')
 

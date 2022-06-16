@@ -29,11 +29,12 @@ class ItemControllers extends Controller
 
     //                  route model binding
     public function show(Item $item){
-        $request = Item::all();
+        // $request = Item::all();
         $date = Carbon::now();
         $to = \Carbon\Carbon::parse($date);
-        $from = \Carbon\Carbon::parse($request[0]->End_date);
-        $hours = $to->diffInHours($from);
+        // $from = \Carbon\Carbon::parse(->End_date);
+        $from = \Carbon\Carbon::parse($item->End_date);
+        $hours = $to->diffInSeconds($from, false);
 
         // dd($item->user->id);
 
