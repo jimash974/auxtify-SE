@@ -24,6 +24,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->string('gambar');
             $table->timestamps();
+            $table->timestamp('End_date')->nullable();
         });
     }
 

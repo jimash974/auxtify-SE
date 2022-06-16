@@ -19,6 +19,7 @@ class informationController extends Controller
     }
 
     public function status(User $user){
+        // return auth()->user;
         return view('informations.accountStatusDetail', [
             'title' => 'Status',
             'user' => $user
@@ -28,7 +29,7 @@ class informationController extends Controller
     public function TopUp(Request $request, User $user){  
 
         $validatedData = $request->validate(([
-            'amount' => 'required|max:1000000|min:100000',
+            'amount' => 'required|min:6',
         ]));
 
         $user->update([

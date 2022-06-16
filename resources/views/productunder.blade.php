@@ -54,7 +54,7 @@
                             <button type="button" class="btn btn-outline-warning" id="buttonbid">BUY NOW :<br>Rp
                                 {{ $item->buyNow }},-</button>
                             <button type="button" class="btn btn-outline-warning" id="buttontime">Time Remaining :<br>
-                                <b>0 : 35 : 29</b></button>
+                                <b id="countdown"></b></button>
                         </div>
                         <div style="clear: both;"></div>
 
@@ -116,27 +116,45 @@
                 </div>
             </div>
         </div>
-    </div>
+        {{-- <h1>{{ $item->created_at +5 }}</h1> --}}
+        {{-- <div id="countdown">  --}}
 
+    </div>
+    <script>
+        CountDownTimer('countdown');
+        function CountDownTimer( id)
+        {
+            var end = new Date('{{$item->End_date}}');
+            var _second = 1000;
+            var _minute = _second * 60;
+            var _hour = _minute * 60;
+            var _day = _hour * 24;
+            var timer;
+            function showRemaining() {
+                var now = new Date();
+                var distance = end - now;
+                if (distance < 0) {
+
+                    clearInterval(timer);
+                    document.getElementById(id).innerHTML = '<b>TUGAS SUDAH BERAKHIR</b> ';
+                    return;
+                }
+                var days = Math.floor(distance / _day);
+                var hours = Math.floor((distance % _day) / _hour);
+                var minutes = Math.floor((distance % _hour) / _minute);
+                var seconds = Math.floor((distance % _minute) / _second);
+
+                document.getElementById(id).innerHTML = days + 'days ';
+                document.getElementById(id).innerHTML += hours + 'hrs ';
+                document.getElementById(id).innerHTML += minutes + 'mins ';
+                document.getElementById(id).innerHTML += seconds + 'secs';
+                // document.getElementById(id).innerHTML +='<h2>TUGAS BELUM BERAKHIR</h2>';
+            }
+            timer = setInterval(showRemaining, 1000);
+        }
+    </script>
 
 
     <hr id="separator-footer">
 
-    <script>
-        const changeBidBtn = document.querySelectorAll('.changebid');
-        let bidValue = parseInt(document.querySelector('.bidvalue').value);
-        
-        changeBidBtn.forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (this.innerHTML == '+') {
-                    bidValue += 100000;
-                } else {
-                    bidValue -= 100000;
-                }
-                document.querySelector('.bidvalue').value = bidValue;
-            });
-        });
-
-    </script>
 @endsection

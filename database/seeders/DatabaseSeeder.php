@@ -32,7 +32,8 @@ class DatabaseSeeder extends Seeder
         'bid' => '100000',
         'buyNow' => '250000',
         'deskripsi' => 'Bomber Jacket <br>bahan tebal <br>lebar : 50cmcm <br>panjang : 98cm <br>realpict',
-        'gambar' => 'cloth.png'
+        'gambar' => 'cloth.png',
+        'End_date' => '2022-06-17 00:00:00'
         ]);
         
         Item::create([
@@ -43,7 +44,8 @@ class DatabaseSeeder extends Seeder
         'bid' => '60000',
         'buyNow' => '250000',
         'deskripsi' => 'belt free rantai <br>bahan biasa <br>lebar : 4cm <br>panjang : 98cm <br>realpict',
-        'gambar' => 'pants.png'
+        'gambar' => 'pants.png',
+        'End_date' => '2022-06-18 00:00:00'
         ]);
         
         Item::create([
@@ -54,7 +56,8 @@ class DatabaseSeeder extends Seeder
         'bid' => '0',
         'buyNow' => '800000',
         'deskripsi' => 'belt free rantai <br>bahan biasa <br>lebar : 4cm <br>panjang : 98cm <br>realpict',
-        'gambar' => 'shoes.png'
+        'gambar' => 'shoes.png',
+        'End_date' => '2022-06-19 00:00:00'
         ]);
         
         Item::create([
@@ -65,7 +68,8 @@ class DatabaseSeeder extends Seeder
         'bid' => '5000000',
         'buyNow' => '7500000',
         'deskripsi' => 'Sepatu nike airmax <br>cact.us corporation Collaboration <br>Travis Scott<br>Ukuran : 40-48<br>realpict',
-        'gambar' => 'Airmax.png'
+        'gambar' => 'Airmax.png',
+        'End_date' => '2022-06-20 00:00:00'
         ]);
         
         Item::create([
@@ -76,7 +80,8 @@ class DatabaseSeeder extends Seeder
         'bid' => '250000',
         'buyNow' => '450000',
         'deskripsi' => 'Baju brand atmos <br>zodiac Collaboration <br> Baru sekali pakai<br>Ukuran : L<br>realpict',
-        'gambar' => 'ShirtAtmos.png'
+        'gambar' => 'ShirtAtmos.png',
+        'End_date' => '2022-06-21 00:00:00'
         ]);
         
         Item::create([
@@ -87,7 +92,8 @@ class DatabaseSeeder extends Seeder
         'bid' => '0',
         'buyNow' => '400000',
         'deskripsi' => 'Nike Short Pants <br>cact.us Collaboration <br> Baru sekali pakai<br>Ukuran : L<br>realpict',
-        'gambar' => 'Celana.jpg'
+        'gambar' => 'Celana.jpg',
+        'End_date' => '2022-06-22 00:00:00'
         ]);
         
         Category::create([
