@@ -24,15 +24,23 @@ class ItemControllers extends Controller
             "title" => "DASHBOARD",
             // "Items" => Item::all()
             "Items" => Item::with("category")->get(),
-            "TimeLeft" => $hours
         ]);
     }
 
     //                  route model binding
     public function show(Item $item){
+        $request = Item::all();
+        $date = Carbon::now();
+        $to = \Carbon\Carbon::parse($date);
+        $from = \Carbon\Carbon::parse($request[0]->End_date);
+        $hours = $to->diffInHours($from);
+
+        // dd($item->user->id);
+
         return view('productUnder', [
             "title" => "Product Detail",
-            "item" => $item
+            "item" => $item,
+            "TimeLeft" => $hours
         ]);
     }
 
@@ -48,6 +56,8 @@ class ItemControllers extends Controller
         //     'bid' => 'required'
         // ]));
 
+        // dd($User->name);
+
         $this->validate($request, [
             'bid'     => 'required'
         ]);
@@ -58,7 +68,8 @@ class ItemControllers extends Controller
 
         if($request->bid > $item->bid){
             $item->update([
-                'bid' => $request->bid
+                'bid' => $request->bid,
+                'user_id' => $User->id
             ]);
             $User->update([
                 'saldo' => $User->saldo - $request->bid

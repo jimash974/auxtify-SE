@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('gambar');
             $table->timestamps();
             $table->timestamp('End_date')->nullable();
+            $table->foreignId('user_id')->nullable();
         });
     }
 
