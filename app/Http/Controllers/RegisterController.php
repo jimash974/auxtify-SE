@@ -26,12 +26,16 @@ class RegisterController extends Controller
         // return request()->all();
         // return $request->all();
 
+        $request->title = strtolower($request->title);
+        // dd($request->title);
+         $request['title'] = strtolower($request->title);
         $validatedData = $request->validate(([
             'name' => 'required|max:255',
             // sebenerny sama aj kek di atas, hanya beda format aja, dmn format yg atas pake pipe kalau yg bawah pake array
             'username' => ['required', 'min:8', 'max:20', 'unique:users'],
             'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:5|max:100'
+            'password' => 'required|min:5|max:100',
+            'title' => 'required|regex:/bidder/|regex:/seller/'
         ]));
 
         // Kalau validasi di atas lolos, maka yg dibawah ini akan dijalankan
