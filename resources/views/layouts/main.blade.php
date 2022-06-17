@@ -28,12 +28,12 @@
         <a class="navbar-brand m-lg-3" href="\dashboard"><img src="../images/logo.svg" alt="Auxtify Logo"></a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <form class="search d-flex">
+            <form action="/dashboard" class="search d-flex">
               <img class="fa fa-search" src="../images/Location.png" alt="location logo">
               <input
                   type="text" class="form-control search-bar"
-                  placeholder="Sepatu Converse Chuck 70s ukuran...."> 
-              <button class="btn">Search</button>
+                  placeholder="Sepatu Converse Chuck 70s ukuran...." name="search"> 
+              <button type="submit" class="btn">Search</button>
             </form>
           </div>
         </div>

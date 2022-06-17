@@ -11,19 +11,28 @@ use Illuminate\Support\Facades\Auth;
 class ItemControllers extends Controller
 {
     public function index(){
-        $request = Item::all();
-        $date = Carbon::now();
-        // dd($date);
-        // dd($request[0]->End_date);
-        $to = \Carbon\Carbon::parse($date);
-        $from = \Carbon\Carbon::parse($request[0]->End_date);
-        $hours = $to->diffInMinutes($from);
-        // dd($hours);
+        // dd(request('search'));
+
+        // $item = Item::with("category")->get();
+        $item = Item::with("category")->latest();
+
+        if(request('search')){
+            // dd($item->where('judul', 'like', '%' . request('search') . '%'));
+            $item->where('judul', 'like', '%' . request('search') . '%');
+        }
+        // $request = Item::all();
+        // $date = Carbon::now();
+        // // dd($date);
+        // // dd($request[0]->End_date);
+        // $to = \Carbon\Carbon::parse($date);
+        // $from = \Carbon\Carbon::parse($request[0]->End_date);
+        // $hours = $to->diffInMinutes($from);
+        // // dd($hours);
 
         return view('dashboard', [
             "title" => "DASHBOARD",
             // "Items" => Item::all()
-            "Items" => Item::with("category")->get(),
+            "Items" => $item->get()
         ]);
     }
 

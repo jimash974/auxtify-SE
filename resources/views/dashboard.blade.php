@@ -115,8 +115,7 @@ use Carbon\Carbon;
 
 
     <script>
-        // console.log('{{ $Items[0] }}')
-        // console.log(id);
+
         var array = @json($Items);
 
         CountDownTimer('$Items', '#countdown');
