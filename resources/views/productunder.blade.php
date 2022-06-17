@@ -23,23 +23,26 @@
 
                             @if($item->user)
                                 @if($TimeLeft <= 0 )
-                                <h5>Sold to : </h5>
-                                <h4>{{ $item->user->name }}</h4>
+                                <div class="bidder-box black-bg">
+                                    <h5 class="fw-bold fs-4">Sold To : </h5>
+                                    <h4 class="fw-bold">{{ $item->user->name }}</h4>
+                                </div>
                                 @else
-                                <h5>Current Bidder : </h5>
-                                <h4>{{ $item->user->name }}</h4>
-                                @endif
+                                <div class="bidder-box red-bg">
+                                    <h5 class="fw-bold fs-4">Current Bidder : </h5>
+                                    <h4>{{ $item->user->name }}</h4>
+                                </div>
                             @endif
- 
+                            @endif
                         </div>
                         <div class="button">
-                            <form action="/ProductDetail/buyNow/{{ $item->slug }}" method="post" class="{{ ($TimeLeft <= 0) ? 'hidden' : '' }}">
+                            <form action="/ProductDetail/buyNow/{{ $item->slug }}" method="post" class="{{ ($TimeLeft <= 0) ? 'hidden' : '' }} buynow-form">
                                 @csrf
                                 @method('PUT')
-                                <h3>BUY NOW :</h3>
-                                <label for="buyNow">Rp :</label>
-                                <input type="text" name="buyNow" class="form-control1 my-3 p-1 w-20 " value="{{ $item->buyNow }}" style="background-color: transparent" readonly>
-                                <button type="submit" class="btn btn-outline-warning {{ ($TimeLeft <= 0) ? 'hidden' : '' }}" id="buttonbid">Buy Now</button>
+                                <button type="submit" class="btn btn-outline-warning {{ ($TimeLeft <= 0) ? 'hidden' : '' }}" id="buttonbid" value="{{ $item->buyNow }}">
+                                    <h3 class="fw-bold fs-4">BUY NOW :</h3>
+                                    <h3 class="fs-3">Rp. {{$item->buyNow}},-</h3>
+                                </button>
                             </form>
                             <button type="button" class="btn btn-outline-warning" id="buttontime">Time Remaining :<br>
                                 <b id="countdown"></b></button>
