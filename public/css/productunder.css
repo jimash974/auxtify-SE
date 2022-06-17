@@ -18,13 +18,13 @@ body {
 }
 
 .button{
-    margin-top: 12%;
+    margin-top: 5%;
     margin-left: 50%;
 }
 
 .button button{
     display: block;
-    margin: 5%;
+    margin-top: 5%;
     text-align: left;
 
 }
@@ -107,9 +107,9 @@ footer .container {
     font-size: large;
     text-align: left;
     border: 3px solid rgb(253, 122, 0);
-    border-radius: 8%;
-    font-weight: 600;
+    border-radius: 10px;
 }
+
 #buttontime{
     /* margin-left: 160px; */
     /* margin-top: -90px; */
@@ -118,7 +118,7 @@ footer .container {
     color: black;
     font-size: large;
     text-align: left;
-    border-radius: 8%;
+    border-radius: 10px;
 }
 #buttontime b{
     font-weight: 600;
@@ -255,4 +255,36 @@ footer .container {
     visibility: hidden;
     display: none;
     opacity: 0;
+}
+
+.form-control1 {
+    background: none;
+    border: none;
+    max-width: 15ch;
+}
+
+.form-group {
+    font-size: 1.5rem;
+    /* background-color: white; */
+    width: fit-content;
+}
+
+.price-buy-now h3 {
+    width: fit-content;
+}
+
+.bidder-box {
+    color: white;
+    /* border: 3px solid #203239; */
+    border-radius: 10px;
+    min-width: 25ch;
+    padding: .8em;
+}
+
+.black-bg {
+    background-color: #203239;
+}
+
+.red-bg {
+    background-color: #f78847;
 }
