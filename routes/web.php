@@ -96,3 +96,7 @@ Route::get('/account/{user:username}', function(){
     return view('account.index');
 });
 
+Route::get('/informations/status/watchlists/{user:username}', function(){
+    return view('informations.accountStatusWatchlists');
+});
+
