@@ -28,24 +28,53 @@
     <div class="vr"></div>
     <div class="settings-right">
       <div class="right-top d-flex align-items-center justify-content-between">
+        @if(session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+
         <h3>Basic Info</h3>
       </div>
       <hr id="settings-separator">
       <div class="right-bottom">
-        <form action="#" method="post">
+        <form action="/informations/settings/{{ auth()->user()->username }}" method="post">
+          @csrf
+          @method('PUT')
           <label for="name">Name</label>
-          <input type="text" name="name" id="name" class="form-control mb-3" value="{{ $user->name }}">
+          <input type="text" name="name" id="name" class="form-control mb-3 @error('name') is-invalid @enderror" value="{{ $user->name }}">
+          @error ('name')
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+          @enderror
 
           <label for="title">Title</label>
-          <input type="text" name="title" id="title" class="form-control mb-3" value="Mr/Mrs">
+          <input type="text" name="title" id="title" class="form-control mb-3 @error('title') is-invalid @enderror" value="{{ $user->title }}" readonly>
+          @error ('title')
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+          @enderror
 
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" class="form-control mb-3" value="{{ $user->email }}">
+          <input type="email" name="email" id="email" class="form-control mb-3 @error('email') is-invalid @enderror" value="{{ $user->email }}">
+          @error ('email')
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+          @enderror
 
           <label for="username">Username</label>
-          <input type="text" name="username" id="username" class="form-control mb-3" value="{{ $user->username }}">
+          <input type="text" name="username" id="username" class="form-control mb-3 @error('username') is-invalid @enderror" value="{{ $user->username }}" readonly>
+          @error ('username')
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+          @enderror
 
-          <div class="form-btn-group d-flex justify-content-end">
+            <div class="form-btn-group d-flex justify-content-end">
             <button type="reset" class="btn btn-light btn-cancel me-4">Cancel</button>
             <button type="submit" class="btn btn-save">Save</button>
           </div>
