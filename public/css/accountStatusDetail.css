@@ -40,12 +40,13 @@
 
 .boxactivetext{
   padding-left: 0.8em;
-  
+  font-family: Poppins;
 }
 
 .boxactivetext p{
   font-size: 1.2rem;
   font-weight: bold;
+  font-family: Poppins;
 }
 
 td{
