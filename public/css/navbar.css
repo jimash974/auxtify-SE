@@ -124,6 +124,7 @@ footer .container {
   padding: 10px 20px;
   margin-left: 230px;
   display: block;
+  min-height: 1000px;
 }
 
 .content {
