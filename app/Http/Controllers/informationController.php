@@ -29,8 +29,9 @@ class informationController extends Controller
 
     public function TopUp(Request $request, User $user){  
 
+
         $validatedData = $request->validate(([
-            'amount' => 'required|min:6',
+            'amount' => 'required|min:100000|max:10000000|numeric|gt:0',
         ]));
 
         $user->update([

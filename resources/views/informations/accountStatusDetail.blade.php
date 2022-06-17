@@ -31,11 +31,16 @@
             @csrf
             <div class="form-group">
               <label for="deposit-amount">ENTER BALANCE AMOUNT:</label>
-              <input type="text" name="amount" id="amount">
+              <input type="text" name="amount" id="amount" class="@error('amount') is-invalid @enderror">
+                @error ('amount')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="form-group mt-4">
               <label for="payment-method">PAYMENT METHOD:</label>
-              <select name="payment-method" id="payment-method">
+              <select name="payment-method" id="payment-method" required>
                 <option value="">Select Payment Method</option>
                 <option value="">Bank Transfer</option>
                 <option value="">Paypal</option>
