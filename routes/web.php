@@ -100,3 +100,7 @@ Route::get('/informations/status/watchlists/{user:username}', function(){
     return view('informations.accountStatusWatchlists');
 });
 
+Route::get('/informations/history/{user:username}', function(){
+    return view('history.index');
+});
+
