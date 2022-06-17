@@ -80,6 +80,7 @@ Route::post('/informations/status/{user:username}', [informationController::clas
 // });
 
 Route::put('/ProductDetail/{item:slug}', [ItemControllers::class, 'update']);
+Route::put('/ProductDetail/buyNow/{item:slug}', [ItemControllers::class, 'buyNow']);
 
 // route categoryMenu with title category
 Route::get('/categorymenu', function(Category $category){

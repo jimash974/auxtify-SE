@@ -33,14 +33,18 @@
  
                         </div>
                         <div class="button">
-                            <button type="button" class="btn btn-outline-warning {{ ($TimeLeft <= 0) ? 'hidden' : '' }}" id="buttonbid">BUY NOW :<br>Rp
-                                {{ $item->buyNow }},-</button>
+                            <form action="/ProductDetail/buyNow/{{ $item->slug }}" method="post" class="{{ ($TimeLeft <= 0) ? 'hidden' : '' }}">
+                                @csrf
+                                @method('PUT')
+                                <h3>BUY NOW :</h3>
+                                <label for="buyNow">Rp :</label>
+                                <input type="text" name="buyNow" class="form-control1 my-3 p-1 w-20 " value="{{ $item->buyNow }}" style="background-color: transparent" readonly>
+                                <button type="submit" class="btn btn-outline-warning {{ ($TimeLeft <= 0) ? 'hidden' : '' }}" id="buttonbid">Buy Now</button>
+                            </form>
                             <button type="button" class="btn btn-outline-warning" id="buttontime">Time Remaining :<br>
                                 <b id="countdown"></b></button>
                         </div>
                         <div style="clear: both;"></div>
-
-
                     </div>
                 </div>
 
@@ -98,6 +102,7 @@
                 </div>
             </div>
         </div>
+        <div style="height: 900px"></div>
     </div>
         {{-- <h1>{{ $item->created_at +5 }}</h1> --}}
         {{-- <div id="countdown">  --}}
@@ -154,6 +159,7 @@
         });
     </script>
 
+   
 
     <hr id="separator-footer">
 

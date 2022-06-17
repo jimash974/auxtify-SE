@@ -80,6 +80,32 @@ class ItemControllers extends Controller
         else{
             return redirect('/dashboard')->with('error', 'Bid Gagal ditambahkan!');
         }
+    }
+
+    public function buyNow(Request $request, Item $item){
+        // dd($request->item);
+        $id = Auth::id();
+        $User = User::find($id);
+
+        // $date = Carbon::now();
+        // $currDate = \Carbon\Carbon::parse($date);
+        // dd(Carbon::now());
+
+        if($request->buyNow > $User->saldo){
+            return redirect('/dashboard')->with('error', 'Saldo tak cukup');
+        }
+        else{
+            $item->update([
+                'user_id' => $User->id,
+                'End_date' => Carbon::now()
+            ]);
+            $User->update([
+                'saldo' => $User->saldo - $request->buyNow
+            ]);
+
+            return redirect('/dashboard')->with('success', 'Item Berhasil dibeli!');
+        }
+
 
     }
 }
