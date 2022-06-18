@@ -8,8 +8,8 @@
         <h4 class="user-type fw-bold">User</h4>
       </div>
       <ul>
-        <li><a href="">Balance</a></li>
-        <li><a href="">Watchlist</a></li>
+        <li class="fw-bold"><a href="/informations/status/balance/{{ auth()->user()->username }}">Balance</a></li>
+        <li><a href="/informations/status/watchlists/{{ auth()->user()->username }}">Watchlists</a></li>
       </ul>
     </div>
     <div class="vr"></div>

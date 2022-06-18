@@ -73,8 +73,8 @@ Route::get('/informations/settings/{user:username}', [informationController::cla
 Route::put('/informations/settings/{user:username}', [informationController::class, 'update']);
 
 
-Route::get('/informations/status/{user:username}', [informationController::class, 'status']);
-Route::post('/informations/status/{user:username}', [informationController::class, 'TopUp']);
+Route::get('/informations/status/balance/{user:username}', [informationController::class, 'status']);
+Route::post('/informations/status/balance/{user:username}', [informationController::class, 'TopUp']);
 // Route::post('/information/status', function(){
 //     return view()
 // });

@@ -6,7 +6,7 @@
     <ul class="d-flex justify-content-around">
       <li class="title-btn {{ (request()->segment(2) == 'settings' ) ? 'settings-active' : '' }}"><a href="/informations/settings/{{ auth()->user()->username }}">Settings</a></li>
       <li class="title-btn {{ (request()->segment(2) == 'status' ) ? 'settings-active' : '' }}"><a href="/informations/status/{{ auth()->user()->username }}">Status</a></li>
-      <li class="title-btn"><a href="#">History</a></li>
+      <li class="title-btn {{ (request()->segment(2) == 'history') ? 'settings-active' : ''}}"><a href="/informations/history/{{ auth()->user()->username }}">History</a></li>
     </ul>
   </div>
 </div>
