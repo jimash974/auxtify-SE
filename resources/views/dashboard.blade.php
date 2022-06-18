@@ -61,7 +61,7 @@ use Carbon\Carbon;
                             </div>
                             <div class="product-title">
                                 {{ $item->judul }} <br>
-                                Time : {{ $HoursLeft }} Hours
+                                {{-- Time : {{ $HoursLeft }} Hours --}}
                             </div>
                             <div class="product-img"><img src="../images/{{ $item->gambar }}" alt="cloth">
                             </div>
@@ -165,7 +165,6 @@ use Carbon\Carbon;
                     }
                 timer = setInterval(showRemaining, 1000);
             })
-
         }
     </script>
 

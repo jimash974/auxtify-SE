@@ -77,6 +77,7 @@ Route::get('/informations/history/{user:username}', [informationController::clas
 
 Route::get('/informations/status/balance/{user:username}', [informationController::class, 'status']);
 Route::post('/informations/status/balance/{user:username}', [informationController::class, 'TopUp']);
+Route::get('/informations/status/watchlists/{user:username}', [informationController::class, 'watchList']);
 // Route::post('/information/status', function(){
 //     return view()
 // });
@@ -98,8 +99,6 @@ Route::get('/account/{user:username}', function(){
     return view('account.index');
 });
 
-Route::get('/informations/status/watchlists/{user:username}', function(){
-    return view('informations.accountStatusWatchlists');
-});
+
 
 

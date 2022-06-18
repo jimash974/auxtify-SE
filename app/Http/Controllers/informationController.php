@@ -70,15 +70,34 @@ class informationController extends Controller
         ;
     }
 
+    public function watchList(User $user){
+        $now = Carbon::now();
+        $date = \Carbon\Carbon::parse($now);
+
+        // $itemActive = Item::get()->where('user_id', $user->id);
+        $itemActive = Item::where('End_date', '>', $date)->where('user_id', $user->id)->get();
+        
+        // $itemActive = Item::where('End_date', '>', $date)->get();
+
+        // $itemActive->where('End_date', '>', $date);
+        // dd($itemActive);
+        // dd($itemActive[0]->End_date, date($date));
+
+        return view('informations.accountStatusWatchlists', [
+            'itemActive' => $itemActive
+        ]);
+
+    }
+
     public function history(Request $request, User $user){
 
         $date = Carbon::now();
 
         $item = Item::with("user")->where('End_date', '<', $date)->get();
         
-        // dd($item->user->username);
-        $item->where('user_id', $user->user_id);
-        // dd($item);
+        dd($item);
+        $item->where('user_id', $user->id);
+        // dd($user->id);
         
 
         return view('history.index',[

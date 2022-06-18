@@ -21,30 +21,32 @@
 			<hr>
 			<div class="activebids">
 				<h1 class="fs-4 fw-bold">ACTIVE BIDS</h1>
-				<div class="boxactive greenborder">
-					<img src="/images/cloth.png" alt="">
-					<div class="boxactivetext">
-						<p>Colorblock Jacket by R&A, Size F // Free size, Like new</p>
-						<table>
-							<tr>
-								<td>Start Price :</td>
-								<td>Bid :</td>
-							</tr>
-							<tr>
-								<td>Rp 50.000,-</td>
-								<td>Rp 78.500,-</td>
-							</tr>
-							<tr>
-								<td>Buy Now :</td>
-								<td>Time Remaining :</td>
-							</tr>
-							<tr>
-								<td>Rp 250.000,-</td>
-								<td>1:05:30</td>
-							</tr>
-						</table>
+				@forEach($itemActive as $item)
+					<div class="boxactive greenborder">
+						<img src="/images/{{ $item->gambar }}" alt="">
+						<div class="boxactivetext">
+							<p>{{ $item->judul }}</p>
+							<table>
+								<tr>
+									<td>Start Price :</td>
+									<td>Bid :</td>
+								</tr>
+								<tr>
+									<td>Rp {{ $item->price }},-</td>
+									<td>Rp {{ $item->bid }},-</td>
+								</tr>
+								<tr>
+									<td>Buy Now :</td>
+									<td>Time Remaining :</td>
+								</tr>
+								<tr>
+									<td>Rp {{ $item->buyNow }},-</td>
+									<td id="countdown"></td>
+								</tr>
+							</table>
+						</div>
 					</div>
-				</div>
+				@endforeach
 			</div>
 			<div class="expirebids mt-4">
 				<h1 class="fs-4 fw-bold">WATCHED ITEMS</h1>
@@ -67,7 +69,7 @@
 							</tr>
 							<tr>
 								<td>Rp 900.000,-</td>
-								<td>00:57:49</td>
+								<td class="countdown"></td>
 							</tr>
 						</table>
 					</div>
@@ -76,5 +78,60 @@
 		</div>
 	</div>
 </div>
+
+<script>
+
+	var array = @json($itemActive);
+
+	CountDownTimer('$itemActive', '#countdown');
+
+	// console.log(array);
+
+
+	function CountDownTimer(dt, id)
+	{
+		let i = 0;
+		id = document.querySelectorAll('#countdown');
+
+		// id.forEach(function(id2){
+		//     console.log(id2);
+		//     id2.innerHTML = 'hai';
+		//     console.log(array[i++].End_date);
+		// })
+
+		// return;
+		id.forEach(function(id2){
+			var end = new Date(array[i++].End_date);
+			var _second = 1000;
+			var _minute = _second * 60;
+			var _hour = _minute * 60;
+			var _day = _hour * 24;
+			var timer;
+			function showRemaining() {
+				var now = new Date();
+				var distance = end - now;
+				if (distance < 0) {
+
+					clearInterval(timer);
+					id2.innerHTML = '<b>TIMES UP</b> ';
+					return;
+				}
+				var days = Math.floor(distance / _day);
+				var hours = Math.floor((distance % _day) / _hour);
+				var minutes = Math.floor((distance % _hour) / _minute);
+				var seconds = Math.floor((distance % _minute) / _second);
+
+				console.log(id2);
+				id2.innerHTML = days + 'days ';
+				id2.innerHTML += hours + 'hrs ';
+				id2.innerHTML += minutes + 'mins ';
+				id2.innerHTML += seconds + 'secs';            
+				// document.getElementById(id).innerHTML +='<h2>TUGAS BELUM BERAKHIR</h2>';
+				}
+			timer = setInterval(showRemaining, 1000);
+		})
+	}
+</script>
+
 
 @endsection

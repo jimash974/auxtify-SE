@@ -38,6 +38,12 @@
   justify-content: space-between;
 }
 
+.boxactive img{
+  width: 25%;
+  border: 3px solid black;
+  border-radius: 3px;
+}
+
 .boxactivetext{
   padding-left: 0.8em;
   font-family: Poppins;
