@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\UserBid;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Item extends Model
 {
@@ -19,5 +20,10 @@ class Item extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function userBid()
+    {
+        return $this->hasMany((UserBid::class));
     }
 }

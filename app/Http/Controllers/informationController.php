@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\User;
-
-use Illuminate\Http\Request;
 use Carbon\Carbon;
+
 use App\Models\Item;
+use App\Models\User;
+use App\Models\UserBid;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -71,20 +72,23 @@ class informationController extends Controller
     }
 
     public function watchList(User $user){
+        
         $now = Carbon::now();
         $date = \Carbon\Carbon::parse($now);
 
         // $itemActive = Item::get()->where('user_id', $user->id);
         $itemActive = Item::where('End_date', '>', $date)->where('user_id', $user->id)->get();
-        
+        $watch = UserBid::with("item")->where('user_id', $user->id)->get();
+        // dd($watch);
         // $itemActive = Item::where('End_date', '>', $date)->get();
 
         // $itemActive->where('End_date', '>', $date);
         // dd($itemActive);
         // dd($itemActive[0]->End_date, date($date));
-
+        // return view('informations.accountStatusWatchlists');
         return view('informations.accountStatusWatchlists', [
-            'itemActive' => $itemActive
+            'itemActive' => $itemActive,
+            'Watchs' => $watch
         ]);
 
     }
@@ -96,9 +100,12 @@ class informationController extends Controller
         $item = Item::get();
         $item = Item::with("user")->where('user_id', $user->id)->where('End_date', '<', $date)->get();
 
+        $watch = UserBid::with("item")->where('user_id', $user->id)->get();
+
 
         return view('history.index',[
-            'Items' => $item
+            'Items' => $item,
+        'Watchs' => $watch
         ]);
     }
 

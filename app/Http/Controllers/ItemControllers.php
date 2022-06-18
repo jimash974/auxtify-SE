@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Item;
 use App\Models\User;
+use App\Models\UserBid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,13 +61,8 @@ class ItemControllers extends Controller
         $id = Auth::id();
 
         $User = User::find($id);
-        // return $User->saldo-$request->bid;
-        
-        // $validatedData = $request->validate(([
-        //     'bid' => 'required'
-        // ]));
 
-        // dd($User->name);
+ 
 
         $this->validate($request, [
             'bid'     => 'required'
@@ -84,6 +80,12 @@ class ItemControllers extends Controller
             $User->update([
                 'saldo' => $User->saldo - $request->bid
             ]);
+
+            $userBid = UserBid::create([
+                'user_id' => $User->id,
+                'item_id' => $item->id
+            ]);
+
             return redirect('/dashboard')->with('success', 'Bid Berhasil ditambahkan!');
         }
         else{
@@ -105,7 +107,8 @@ class ItemControllers extends Controller
         else{
             $item->update([
                 'user_id' => $User->id,
-                'End_date' => Carbon::now()
+                'End_date' => Carbon::now(),
+                'bid' => $item->buyNow
             ]);
             $User->update([
                 'saldo' => $User->saldo - $item->buyNow
