@@ -53,8 +53,8 @@
               data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="#">Notifications</a></li>
-              <li><a class="dropdown-item" href="#">Watchlist</a></li>
-              <li><a class="dropdown-item" href="/informations/status/{{ auth()->user()->username }}">Wallet</a></li>
+              <li><a class="dropdown-item" href="/informations/status/watchlists/{{ auth()->user()->username }}">Watchlist</a></li>
+              <li><a class="dropdown-item" href="/informations/status/balance/{{ auth()->user()->username }}">Wallet</a></li>
               <li><a class="dropdown-item" href="#">Filter</a></li>
               <li><a class="dropdown-item" href="/informations/settings/{{ auth()->user()->username }}">Settings</a></li>
               <li>
