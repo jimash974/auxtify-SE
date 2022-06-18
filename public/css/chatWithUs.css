@@ -1,0 +1,72 @@
+.settings-left {
+  text-align: left;
+  width: max-content;
+  flex: 1;
+}
+
+.settings-right {
+  flex: 1.3;
+  padding: 0 10%;
+}
+
+.settings-left ul {
+  list-style: none;
+  margin: 0;
+  margin-top: 30px;
+  padding: 0;
+}
+
+.settings-left ul li {
+  margin-top: 30px;
+}
+.settings-left ul li a {
+  text-decoration: none;
+  color: #203239;
+  font-size: 32px;
+}
+
+.settings-right > h1 {
+  font-size: 2rem;
+  margin-bottom: 1em;
+}
+
+#chat-form {
+  display: grid;
+  grid-template-columns: .7fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr 2fr;
+  grid-template-areas: "label input"
+                       "label input" 
+                       "label input" 
+                       "label input" 
+                       "submit submit";
+  margin-top: 2.5em;
+}
+
+#chat-form label, #chat-form input{
+  font-size: .9rem;
+  margin-bottom: 2rem;
+  font-family: Poppins;
+  align-self: center;
+}
+
+#chat-form label {
+  text-transform: uppercase;
+}
+
+#chat-form textarea {
+  resize: none;
+}
+
+#submit-btn {
+/* place center with grid area name submit */
+  grid-area: submit;
+  justify-self: center;
+  align-self: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #FF7527;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 1.5em;
+  width: 50%;
+}

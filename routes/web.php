@@ -100,5 +100,7 @@ Route::get('/account/{user:username}', function(){
 });
 
 
-
+Route::get('/help/chat', function(){
+    return view('help.chatWithUs');
+});
 
