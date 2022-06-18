@@ -91,16 +91,15 @@ class ItemControllers extends Controller
         }
     }
 
-    public function buyNow(Request $request, Item $item){
+    public function buyNow(Item $item){
         // dd($request->item);
         $id = Auth::id();
         $User = User::find($id);
-
         // $date = Carbon::now();
         // $currDate = \Carbon\Carbon::parse($date);
         // dd(Carbon::now());
 
-        if($request->buyNow > $User->saldo){
+        if($item->buyNow > $User->saldo){
             return redirect('/dashboard')->with('error', 'Saldo tak cukup');
         }
         else{
@@ -109,7 +108,7 @@ class ItemControllers extends Controller
                 'End_date' => Carbon::now()
             ]);
             $User->update([
-                'saldo' => $User->saldo - $request->buyNow
+                'saldo' => $User->saldo - $item->buyNow
             ]);
 
             return redirect('/dashboard')->with('success', 'Item Berhasil dibeli!');
