@@ -8,6 +8,6 @@ Auxtify is a web application which is an online platform to do an auction throug
 - Bintang Hermawan as a Front-end developer
 - Putu Indra as a Front-end developer
 - Jeremy Nathaniel as a Back-end developer
-- Reynard Aurel as a Marketing and business manager
+- Reynard Wiratama as a Marketing and business manager
 - Devina Aurelia as a UI/UX Designer
 
