@@ -13,6 +13,8 @@
   border: 3px solid #FF7527;
   border-radius: 50%;
   width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .profile-name {

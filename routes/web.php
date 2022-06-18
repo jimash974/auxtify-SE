@@ -71,6 +71,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/informations/settings/{user:username}', [informationController::class, 'settings']);
 Route::put('/informations/settings/{user:username}', [informationController::class, 'update']);
+Route::put('/informations/settings/image/{user:username}', [informationController::class, 'updateImage']);
 Route::get('/informations/history/{user:username}', [informationController::class, 'history']);
 
 

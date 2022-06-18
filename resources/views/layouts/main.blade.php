@@ -39,7 +39,7 @@
         </div>
         <div class="profile-wrapper">
           <div class="user-profile">
-            <img src="../images/user_profile.png" style="cursor:pointer" id="dropdownMenuButton1"
+            <img src="{{ url('/profile-picture' . '/' . auth()->user()->profile_picture  ) }}" style="cursor:pointer" id="dropdownMenuButton1"
               data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
             @auth

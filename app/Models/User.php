@@ -24,7 +24,8 @@ class User extends Authenticatable
         'email',
         'username',
         'password',
-        'saldo'
+        'saldo',
+        'profile_picture'
     ];
 
     // atau bisa ditulis dengan 

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('saldo');
             $table->string('title')->default('bidder');
+            $table->string('profile_picture')->default('user_profile.png');
         });
     }
 

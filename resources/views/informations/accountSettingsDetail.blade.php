@@ -5,7 +5,7 @@
     <div class="settings-left">
       <h1 class="mb-5">Profile</h1>
       <div class="profile-settings">
-        <img src="{{ url('/images/user_profile.png') }}" alt="user profile picture">
+        <img src="{{ url('/profile-picture' . '/' . auth()->user()->profile_picture  ) }}" alt="user profile picture">
         <h1 class="profile-name fs-3 fw-bold">{{ auth()->user()->username }}</h1>
         <h3 class="user-type fw-bold">USER</h3>
       </div>
@@ -20,8 +20,16 @@
           <h3>Following</h3>
         </div>
       </div>
-      <form action="#" method="post">
-        <input type="file" class="form-control" id="new-avatar" accept=".jpg,.jpeg,.png" />
+      @if(session()->has('profileMessage'))
+      <div class="alert alert-success alert-dismissible fade show w-75 mx-auto" role="alert">
+          {{ session('profileMessage') }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+      <form action="/informations/settings/image/{{ auth()->user()->username }}" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <input type="file" class="form-control" id="new-avatar" name="image" accept=".jpg,.jpeg,.png" required />
         <button type="submit" class="p-3 upload-btn fs-4">Upload New Avatar</button>
       </form>
       <div class="user-location mt-4">
