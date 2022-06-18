@@ -5,7 +5,7 @@
     <div class="settings-left">
       <h1 class="mb-5">Profile</h1>
       <div class="profile-settings">
-        <img src="{{ url('/images/user_profile.png') }}" alt="">
+        <img src="{{ url('/images/user_profile.png') }}" alt="user profile picture">
         <h1 class="profile-name fs-3 fw-bold">{{ auth()->user()->username }}</h1>
         <h3 class="user-type fw-bold">USER</h3>
       </div>
@@ -20,7 +20,10 @@
           <h3>Following</h3>
         </div>
       </div>
-      <button class="btn p-3 upload-btn fs-4">Upload New Avatar</button>
+      <form action="#" method="post">
+        <input type="file" class="form-control" id="new-avatar" accept=".jpg,.jpeg,.png" />
+        <button type="submit" class="p-3 upload-btn fs-4">Upload New Avatar</button>
+      </form>
       <div class="user-location mt-4">
         <h3>Jakarta, Indonesia</h3>
       </div>
@@ -51,7 +54,7 @@
           @enderror
 
           <label for="title">Title</label>
-          <input type="text" name="title" id="title" class="form-control mb-3 @error('title') is-invalid @enderror" value="{{ $user->title }}" readonly>
+          <input type="text" name="title" id="title" class="form-control mb-3 @error('title') is-invalid @enderror" value="{{ $user->title }}" disabled>
           @error ('title')
           <div class="invalid-feedback">
             {{ $message }}
@@ -67,7 +70,7 @@
           @enderror
 
           <label for="username">Username</label>
-          <input type="text" name="username" id="username" class="form-control mb-3 @error('username') is-invalid @enderror" value="{{ $user->username }}" readonly>
+          <input type="text" name="username" id="username" class="form-control mb-3 @error('username') is-invalid @enderror" value="{{ $user->username }}" disabled>
           @error ('username')
           <div class="invalid-feedback">
             {{ $message }}
