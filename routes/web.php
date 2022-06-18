@@ -104,3 +104,6 @@ Route::get('/help/chat', function(){
     return view('help.chatWithUs');
 });
 
+Route::get('/help/faq', function(){
+    return view('help.faq');
+});

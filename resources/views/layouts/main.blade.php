@@ -110,7 +110,7 @@
             </a>
           </li>
       </ul>
-      <a href="#" class="nav-link text-white">
+      <a href="/help/chat" class="nav-link text-white">
         <img src="../images/Chat_alt_3.png" alt="error gais">
           Help & Support
       </a>

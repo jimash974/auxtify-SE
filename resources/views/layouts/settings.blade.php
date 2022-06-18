@@ -31,7 +31,7 @@
         <ul class="d-flex justify-content-around align-items-center">
           <li class="{{(request()->segment(1) == 'account') ? 'active' : ''}}"><a href="/account/{{ auth()->user()->username }}">Account</a></li>
           <li class="{{(request()->segment(1) == 'informations') ? 'active' : ''}}"><a href="/informations/settings/{{ auth()->user()->username }}">Informations</a></li>
-          <li><a href="">Help & Support</a></li>
+          <li class="{{(request()->segment(1) == 'help') ? 'active' : ''}}"><a href="/help/chat">Help & Support</a></li>
         </ul>
       </div>
       <div class="profile-wrapper d-flex align-items-center">
