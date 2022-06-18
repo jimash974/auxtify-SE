@@ -7,7 +7,7 @@
 	<div class="settings-left px-5">
 		<div class="name-and-type d-flex align-items-baseline">
 			<h3 class="profile-name fw-bold me-3">{{ auth()->user()->name }}</h3>
-			<h4 class="user-type fw-bold">User</h4>
+			<h4 class="user-type fw-bold">{{ auth()->user()->title }}</h4>
 		</div>
 	</div>
 	<div class="vr"></div>
@@ -17,30 +17,32 @@
 			<hr>
 			<div class="activebids">
 				<h1 class="fs-4 fw-bold">WON</h1>
-				<div class="boxactive greenborder">
-					<img src="/images/cloth.png" alt="">
-					<div class="boxactivetext">
-						<p>Colorblock Jacket by R&A, Size F // Free size, Like new</p>
-						<table>
-							<tr>
-								<td>Start Price :</td>
-								<td>Sold For :</td>
-							</tr>
-							<tr>
-								<td>Rp 150.000,-</td>
-								<td>Rp 280.500,-</td>
-							</tr>
-							<tr>
-								<td>Buy Now :</td>
-								<td>Time Remaining :</td>
-							</tr>
-							<tr>
-								<td>Rp 375.500,-</td>
-								<td>Expired</td>
-							</tr>
-						</table>
+				@forEach($Items as $item)
+					<div class="boxactive greenborder">
+						<img src="/images/{{ $item->gambar }}" alt="">
+						<div class="boxactivetext">
+							<p>{{ $item->judul }}</p>
+							<table>
+								<tr>
+									<td>Start Price :</td>
+									<td>Sold For :</td>
+								</tr>
+								<tr>
+									<td>Rp {{ $item->price }},-</td>
+									<td>Rp 280.500,-</td>
+								</tr>
+								<tr>
+									<td>Buy Now :</td>
+									<td>Time Remaining :</td>
+								</tr>
+								<tr>
+									<td>Rp {{ $item->buyNow }},-</td>
+									<td>Expired</td>
+								</tr>
+							</table>
+						</div>
 					</div>
-				</div>
+				@endforeach
 			</div>
 			<div class="expirebids mt-4">
 				<h1 class="fs-4 fw-bold">EXPIRED</h1>

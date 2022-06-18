@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -66,6 +68,23 @@ class informationController extends Controller
 
         return Redirect::back()->with('message','Data update successful !');
         ;
+    }
+
+    public function history(Request $request, User $user){
+
+        $date = Carbon::now();
+
+        $item = Item::with("user")->where('End_date', '<', $date)->get();
+        
+        // dd($item->user->username);
+        $item->where('user_id', $user->user_id);
+        // dd($item);
+        
+
+        return view('history.index',[
+            'user' => $user,
+            'Items' => $item
+        ]);
     }
 
 }

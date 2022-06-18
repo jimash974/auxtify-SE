@@ -71,6 +71,8 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/informations/settings/{user:username}', [informationController::class, 'settings']);
 Route::put('/informations/settings/{user:username}', [informationController::class, 'update']);
+Route::get('/informations/history/{user:username}', [informationController::class, 'history']);
+
 
 
 Route::get('/informations/status/balance/{user:username}', [informationController::class, 'status']);
@@ -100,7 +102,4 @@ Route::get('/informations/status/watchlists/{user:username}', function(){
     return view('informations.accountStatusWatchlists');
 });
 
-Route::get('/informations/history/{user:username}', function(){
-    return view('history.index');
-});
 
