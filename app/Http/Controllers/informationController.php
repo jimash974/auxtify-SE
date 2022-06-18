@@ -95,7 +95,7 @@ class informationController extends Controller
 
         $item = Item::with("user")->where('End_date', '<', $date)->get();
         
-        dd($item);
+        // dd($item);
         $item->where('user_id', $user->id);
         // dd($user->id);
         
