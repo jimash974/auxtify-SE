@@ -18,6 +18,7 @@
 			<div class="activebids">
 				<h1 class="fs-4 fw-bold">WON</h1>
 				@forEach($Items as $item)
+					{{-- <h3>{{ $item->user->username }}</h3> --}}
 					<div class="boxactive greenborder">
 						<img src="/images/{{ $item->gambar }}" alt="">
 						<div class="boxactivetext">

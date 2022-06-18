@@ -93,15 +93,11 @@ class informationController extends Controller
 
         $date = Carbon::now();
 
-        $item = Item::with("user")->where('End_date', '<', $date)->get();
-        
-        // dd($item);
-        $item->where('user_id', $user->id);
-        // dd($user->id);
-        
+        $item = Item::get();
+        $item = Item::with("user")->where('user_id', $user->id)->where('End_date', '<', $date)->get();
+
 
         return view('history.index',[
-            'user' => $user,
             'Items' => $item
         ]);
     }

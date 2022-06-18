@@ -38,6 +38,10 @@
     justify-content: space-between;
     margin: 10px 0px;
   }
+
+  .boxactive img{
+    width: 25%;
+  }
   
   .boxactivetext{
     padding-left: 0.8em;

@@ -67,7 +67,7 @@
         <div class="mb-3">
           <label for="title" class="form-label">Title (Bidder/Seller)</label>
           <input type="text" class="form-control email @error('title') is-invalid @enderror" id="title" name="title"
-            placeholder="Type your title here" required value="{{ old('title') }}">
+            placeholder="Type your title here" value="bidder" disabled required>
             @error ('title')
             <div class="invalid-feedback">
               {{ $message }}
