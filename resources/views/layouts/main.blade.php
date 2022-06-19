@@ -39,8 +39,19 @@
         </div>
         <div class="profile-wrapper">
           <div class="user-profile">
-            <img src="{{ url('/profile-picture' . '/' . auth()->user()->profile_picture  ) }}" style="cursor:pointer" id="dropdownMenuButton1"
+            @auth
+              @if(auth()->user()->profile_picture )
+              <img src="{{ url('/profile-picture' . '/' . auth()->user()->profile_picture  ) }}" style="cursor:pointer" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
+              @else
+              <img src="{{ url('/images/user_profile.png') }}" style="cursor:pointer" id="dropdownMenuButton1"
               data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
+              @endif
+            @else
+              <img src="{{ url('/images/user_profile.png') }}" style="cursor:pointer" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
+            @endauth
+
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
             @auth
             <li><a class="dropdown-item" href="#">Notifications</a></li>

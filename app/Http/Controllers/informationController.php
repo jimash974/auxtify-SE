@@ -34,7 +34,7 @@ class informationController extends Controller
 
 
         $validatedData = $request->validate(([
-            'amount' => 'required|min:100000|max:10000000|numeric|gt:0',
+            'amount' => 'required|numeric|min:100000|max:10000000|gt:0',
         ]));
 
         $user->update([
