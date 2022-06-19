@@ -31,7 +31,7 @@ Route::get('/ProductDetail/{item:slug}', [ItemControllers::class, 'show'])->midd
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('Category', [
         'title' => $category->name,
-        'items' => $category->items->load('category'),
+        'Items' => $category->items->load('category'),
         'category' => $category->name
     ]);
 })->middleware('auth');
@@ -46,28 +46,15 @@ Route::get('/informations/status', function() {
     return view('informations.accountStatusDetail');
 });
 
-// Route::get('/login', function(){
-//     return view('login');
-// });
-
-// Route::get('/register', function(){
-//     return view('register');
-// });
-
-
-// Jadi nanti middleware bakal ada di antara /login lalu ke middleware, lalu baru ke [LoginController::class, 'index']
-// hanya bisa diakses oleh user yg blm terautentikasi
-// name('login') = memberi nama route dengan nama login, ini berkaitan ketika mengakses dashboard tanpa authenticate
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 
 Route::get('/register', [RegisterController::class, 'create']);
-// Route::get('/register', [RegisterController::class, 'create'])->middleware(('guest'));
 Route::post('/register', [RegisterController::class, 'store']);
 
-// Route::get('/dashboard', [ItemControllers::class, 'index'])->middleware('auth');
+
 
 Route::get('/informations/settings/{user:username}', [informationController::class, 'settings']);
 Route::put('/informations/settings/{user:username}', [informationController::class, 'update']);
@@ -79,19 +66,15 @@ Route::get('/informations/history/{user:username}', [informationController::clas
 Route::get('/informations/status/balance/{user:username}', [informationController::class, 'status']);
 Route::post('/informations/status/balance/{user:username}', [informationController::class, 'TopUp']);
 Route::get('/informations/status/watchlists/{user:username}', [informationController::class, 'watchList']);
-// Route::post('/information/status', function(){
-//     return view()
-// });
+
 
 Route::put('/ProductDetail/{item:slug}', [ItemControllers::class, 'update']);
 Route::put('/ProductDetail/buyNow/{item:slug}', [ItemControllers::class, 'buyNow']);
 
-// route categoryMenu with title category
+
 Route::get('/categorymenu', function(Category $category){
     return view('categoryMenu', [
         'title' => $category->name,
-        // 'items' => $category->items->load('category'),
-        // 'category' => $category->name
     ]);
 })->middleware('auth');
 

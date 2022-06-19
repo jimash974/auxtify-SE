@@ -1,9 +1,11 @@
 @extends('layouts.main')
 @section('contentFill')
-{{-- <link rel="stylesheet" href="{{ url('/css/dashboard.css') }}"> --}}
-<link rel="stylesheet" href="{{ url('/css/category.css') }}">
+<link rel="stylesheet" href="{{ url('/css/dashboard.css') }}">
+{{-- <link rel="stylesheet" href="{{ url('/css/category.css') }}"> --}}
 <link rel="stylesheet" href="{{ url('/css/navbar.css') }}">
-
+<?php
+use Carbon\Carbon;
+?>
     <div class="content">
         <div class="main-content">
             <div class="container">
@@ -16,17 +18,33 @@
                 <h1>{{ $category }}</h1>
                 <div class="wrapper">
 
-                    @foreach($items as $item)
-                    <div class="product-reg">
+                    @foreach($Items as $item)
+                    <?php 
+                        $date = Carbon::now();
+                        $to = \Carbon\Carbon::parse($date);
+                        $from = \Carbon\Carbon::parse($item->End_date);
+                        $TimeLeft = $to->diffInSeconds($from, false);
+                        $HoursLeft = $to->diffInHours($from);
+                    ?>
+                    <div 
+                        @if($TimeLeft > 6400)
+                            class="product-reg"                            
+                        @elseif($TimeLeft <= 0)
+                            class="product-exp"
+                        @else
+                            class="product-under"
+                        @endif
+                    >
                         <div class="category">
                             <a href="/categories/{{ $item->category->slug }}">
                                 {{ $item->category->name }}
                             </a>
                         </div>
                         <div class="product-title">
-                            {{ $item->judul }}
+                            {{ $item->judul }} <br>
+                            {{-- Time : {{ $HoursLeft }} Hours --}}
                         </div>
-                        <div class="product-img"><img src="/images/{{ $item->gambar }}" alt="cloth">
+                        <div class="product-img"><img src="../images/{{ $item->gambar }}" alt="cloth">
                         </div>
                         <div class="product-details d-flex justify-content-between">
                             <div class="prices">
@@ -52,17 +70,18 @@
                                     <p class="my-0" style="font-weight:bold; font-size: 15px;">
                                         Time Remaining:
                                     </p>
-                                    <div class="time" style="font-size: 20px;">
-                                        4:05:30
+                                    <div class="time" style="font-size: 15px;">
+                                        <b id="countdown"></b>
                                     </div>
                                 </div>
                                 <div class="more-button float-end">
-                                    <a href="/ProductDetail/{{ $item->slug }}">
+                                    <a href="ProductDetail/{{ $item->slug }}">
                                         <button>
                                             <img src="../images/Expand More.png" alt="more">
                                         </button>
                                     </a>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -75,6 +94,50 @@
     </div>
     </div>
     <hr id="separator-footer">
+
+
+    <script>
+
+        var array = @json($Items);
+
+        CountDownTimer('$Items', '#countdown');
+ 
+        function CountDownTimer(dt, id)
+        {
+            let i = 0;
+            id = document.querySelectorAll('#countdown');
+
+            id.forEach(function(id2){
+                var end = new Date(array[i++].End_date);
+                var _second = 1000;
+                var _minute = _second * 60;
+                var _hour = _minute * 60;
+                var _day = _hour * 24;
+                var timer;
+                function showRemaining() {
+                    var now = new Date();
+                    var distance = end - now;
+                    if (distance < 0) {
+
+                        clearInterval(timer);
+                        id2.innerHTML = '<b>TIMES UP</b> ';
+                        return;
+                    }
+                    var days = Math.floor(distance / _day);
+                    var hours = Math.floor((distance % _day) / _hour);
+                    var minutes = Math.floor((distance % _hour) / _minute);
+                    var seconds = Math.floor((distance % _minute) / _second);
+
+                    console.log(id2);
+                    id2.innerHTML = days + 'days ';
+                    id2.innerHTML += hours + 'hrs ';
+                    id2.innerHTML += minutes + 'mins ';
+                    id2.innerHTML += seconds + 'secs';            
+                    }
+                timer = setInterval(showRemaining, 1000);
+            })
+        }
+    </script>
 
 @endsection
 

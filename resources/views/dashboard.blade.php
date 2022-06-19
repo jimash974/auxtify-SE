@@ -120,7 +120,7 @@ use Carbon\Carbon;
 
         CountDownTimer('$Items', '#countdown');
 
-        // console.log(array);
+    
 
  
         function CountDownTimer(dt, id)
@@ -128,13 +128,6 @@ use Carbon\Carbon;
             let i = 0;
             id = document.querySelectorAll('#countdown');
 
-            // id.forEach(function(id2){
-            //     console.log(id2);
-            //     id2.innerHTML = 'hai';
-            //     console.log(array[i++].End_date);
-            // })
-
-            // return;
             id.forEach(function(id2){
                 var end = new Date(array[i++].End_date);
                 var _second = 1000;
@@ -161,7 +154,6 @@ use Carbon\Carbon;
                     id2.innerHTML += hours + 'hrs ';
                     id2.innerHTML += minutes + 'mins ';
                     id2.innerHTML += seconds + 'secs';            
-                    // document.getElementById(id).innerHTML +='<h2>TUGAS BELUM BERAKHIR</h2>';
                     }
                 timer = setInterval(showRemaining, 1000);
             })

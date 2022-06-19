@@ -12,41 +12,25 @@ use Illuminate\Support\Facades\Auth;
 class ItemControllers extends Controller
 {
     public function index(){
-        // dd(request('search'));
 
-        // $item = Item::with("category")->get();
         $item = Item::with("category")->latest();
 
         if(request('search')){
-            // dd($item->where('judul', 'like', '%' . request('search') . '%'));
             $item->where('judul', 'like', '%' . request('search') . '%');
         }
-        // $request = Item::all();
-        // $date = Carbon::now();
-        // // dd($date);
-        // // dd($request[0]->End_date);
-        // $to = \Carbon\Carbon::parse($date);
-        // $from = \Carbon\Carbon::parse($request[0]->End_date);
-        // $hours = $to->diffInMinutes($from);
-        // // dd($hours);
 
         return view('dashboard', [
-            "title" => "DASHBOARD",
-            // "Items" => Item::all()
+            "title" => "DASHBOARD", 
             "Items" => $item->get()
         ]);
     }
 
-    //                  route model binding
+    
     public function show(Item $item){
-        // $request = Item::all();
         $date = Carbon::now();
         $to = \Carbon\Carbon::parse($date);
-        // $from = \Carbon\Carbon::parse(->End_date);
         $from = \Carbon\Carbon::parse($item->End_date);
         $hours = $to->diffInSeconds($from, false);
-
-        // dd($item->user->id);
 
         return view('productUnder', [
             "title" => "Product Detail",
@@ -57,7 +41,6 @@ class ItemControllers extends Controller
 
     public function update(Request $request, Item $item){
 
-        // return auth()->user()->saldo;
         $id = Auth::id();
 
         $User = User::find($id);
@@ -99,12 +82,8 @@ class ItemControllers extends Controller
     }
 
     public function buyNow(Item $item){
-        // dd($request->item);
         $id = Auth::id();
         $User = User::find($id);
-        // $date = Carbon::now();
-        // $currDate = \Carbon\Carbon::parse($date);
-        // dd(Carbon::now());
 
         if($item->buyNow > $User->saldo){
             return redirect('/dashboard')->with('error', 'Saldo tak cukup');

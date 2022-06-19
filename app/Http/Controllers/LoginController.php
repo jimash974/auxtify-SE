@@ -10,10 +10,6 @@ class LoginController extends Controller
 {
     public function index()
     {
-        // return view('login.index', [
-        //     'title' => 'Login'
-        // ]);
-
         if(auth()->check()) {
             return redirect('/dashboard');
         } else {
@@ -41,14 +37,11 @@ class LoginController extends Controller
 
         // kalau data kredensial salah, maka balik lagi, dengan memberi pesan error
         return back()->with('loginError', 'Login Failed!!');
-
-        // dd('berhasil login!');
       
     }
 
     public function logout(Request $request)
     {
-        // dd('loggouttt');
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

@@ -15,8 +15,6 @@ class informationController extends Controller
 {
     public function settings(User $user){
 
-        // return view('informations.accountSettingsDetail');
-
         return view('informations.accountSettingsDetail',[
             "title" => "Settings",
             "user" => $user
@@ -48,13 +46,10 @@ class informationController extends Controller
 
     public function update(Request $request, User $user){
         $request->title = strtolower($request->title);
-        // dd($request->title);
 
         $user->update([
             'email' => ' ',
         ]);
-
-        // dd()
 
         $validatedData =  $request->validate(([
             'name' => 'required|max:255|min:8',
@@ -75,16 +70,9 @@ class informationController extends Controller
         $now = Carbon::now();
         $date = \Carbon\Carbon::parse($now);
 
-        // $itemActive = Item::get()->where('user_id', $user->id);
         $itemActive = Item::where('End_date', '>', $date)->where('user_id', $user->id)->get();
         $watch = UserBid::with("item")->where('user_id', $user->id)->get();
-        // dd($watch);
-        // $itemActive = Item::where('End_date', '>', $date)->get();
-
-        // $itemActive->where('End_date', '>', $date);
-        // dd($itemActive);
-        // dd($itemActive[0]->End_date, date($date));
-        // return view('informations.accountStatusWatchlists');
+  
         return view('informations.accountStatusWatchlists', [
             'itemActive' => $itemActive,
             'Watchs' => $watch
@@ -109,25 +97,6 @@ class informationController extends Controller
     }
 
     public function updateImage(Request $request, User $user){
-
-        // // rename and store the image
-        // $imageName = time().'.'.$request->image->getClientOriginalExtension();
-        // $request->image->move(public_path('profile-picture'), $imageName);
-
-        // // delete current profile picture from folder
-        // $currentImage = $user->profile_picture;
-        // $path = public_path('profile-picture/'.$currentImage);
-        // if(file_exists($path)){
-        //     unlink($path);
-        // }
-
-        // // update the user profile picture
-        // $user->update([
-        //     'profile_picture' => $imageName
-        // ]);
-
-        // dd($request->image);
-
         if($user->profile_picture){
             Storage::delete($user->profile_picture);
         }
