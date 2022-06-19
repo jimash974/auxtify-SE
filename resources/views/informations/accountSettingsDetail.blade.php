@@ -5,7 +5,16 @@
     <div class="settings-left">
       <h1 class="mb-5">Profile</h1>
       <div class="profile-settings">
-        <img src="{{ url('/profile-picture' . '/' . auth()->user()->profile_picture  ) }}" alt="user profile picture">
+
+        @if(auth()->user()->profile_picture)
+          {{-- <p>1</p> --}}
+          {{-- <p>{{ auth()->user()->profile_picture }}</p> --}}
+          <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" alt="user profile picture">
+        @else
+        {{-- <p>2</p> --}}
+          <img src="{{ url('/images/user_profile.png') }}" alt="user profile picture">
+        @endif
+
         <h1 class="profile-name fs-3 fw-bold">{{ auth()->user()->username }}</h1>
         <h3 class="user-type fw-bold">USER</h3>
       </div>

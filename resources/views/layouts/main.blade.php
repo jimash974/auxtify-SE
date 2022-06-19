@@ -41,7 +41,7 @@
           <div class="user-profile">
             @auth
               @if(auth()->user()->profile_picture )
-              <img src="{{ url('/profile-picture' . '/' . auth()->user()->profile_picture  ) }}" style="cursor:pointer" id="dropdownMenuButton1"
+              <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" style="cursor:pointer" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
               @else
               <img src="{{ url('/images/user_profile.png') }}" style="cursor:pointer" id="dropdownMenuButton1"
