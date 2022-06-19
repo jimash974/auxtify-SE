@@ -5,7 +5,12 @@
 <div class="account-content">
     <div class="top-bg"></div>
     <div class="main-content">
-        <img src="{{ url('/profile-picture' . '/' . auth()->user()->profile_picture  ) }}" alt="">
+        @if(auth()->user()->profile_picture)
+            <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" alt="">
+        @else
+            <img src="{{ url('/images/user_profile.png') }}" alt="user profile picture">
+        @endif
+        
         <div class="text-content">
             <h1 class="fw-bold mb-0" id="username">{{ auth()->user()->username }}</h1>
             <p class="fs-3 mb-0" id="location">Jakarta,Indonesia</p>

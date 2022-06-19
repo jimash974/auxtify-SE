@@ -23,6 +23,8 @@
     top: 0;
     transform: translateY(-50%);
     width: 200px;
+    height: 200px;
+    object-fit: cover;
     border: 5px solid #FF7527;
     border-radius: 50%;
 }
