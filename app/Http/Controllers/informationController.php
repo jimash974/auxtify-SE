@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\UserBid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 
 class informationController extends Controller
@@ -126,6 +127,11 @@ class informationController extends Controller
         // ]);
 
         // dd($request->image);
+
+        if($user->profile_picture){
+            Storage::delete($user->profile_picture);
+        }
+
         $user->update([
             'profile_picture' =>$request->file('image')->store('profile-picture')
         ]);
