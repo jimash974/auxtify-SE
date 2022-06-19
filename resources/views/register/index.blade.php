@@ -20,7 +20,10 @@
   <img src="../images/auxtify_logo 1.png" class="logo" alt="" width="800">
   <div class="container allbox">
     <h1>Register Account</h1>
-    <p>Kalau blm punya akun ya buat goblog</p>
+    <p>
+      Already have account ??? 
+      <a href="/login">Login</a>
+    </p>
       <form action="/register" method="post">
         @csrf
         <div class="mb-3">
@@ -64,7 +67,7 @@
             @enderror
           </div>
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
           <label for="title" class="form-label">Title (Bidder/Seller)</label>
           <input type="text" class="form-control email @error('title') is-invalid @enderror" id="title" name="title"
             placeholder="Type your title here" value="bidder" disabled required>
@@ -73,10 +76,11 @@
               {{ $message }}
             </div>
             @enderror
-        </div>
+        </div> --}}
         <button class="btn" type="submit">Register</button>
     </form>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
