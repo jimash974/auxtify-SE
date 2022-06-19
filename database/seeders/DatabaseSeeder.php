@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
             'remember_token' => '',
             'created_at' => '2020-06-17 00:00:00',
             'updated_at' => '2020-06-17 00:00:00',
-            'saldo' => 50000,
+            'saldo' => 50000000,
             'title' => 'bidder'
         ]);
     

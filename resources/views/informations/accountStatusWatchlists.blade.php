@@ -100,7 +100,7 @@ use Carbon\Carbon;
 	var array = @json($itemActive);
 	console.log(array);
 
-	// CountDownTimer('$itemActive', '#countdown');
+	CountDownTimer('$itemActive', '#countdown');
 
 	// console.log(array);
 
