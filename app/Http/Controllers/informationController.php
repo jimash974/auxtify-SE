@@ -109,21 +109,27 @@ class informationController extends Controller
 
     public function updateImage(Request $request, User $user){
 
-        // rename and store the image
-        $imageName = time().'.'.$request->image->getClientOriginalExtension();
-        $request->image->move(public_path('profile-picture'), $imageName);
+        // // rename and store the image
+        // $imageName = time().'.'.$request->image->getClientOriginalExtension();
+        // $request->image->move(public_path('profile-picture'), $imageName);
 
-        // delete current profile picture from folder
-        $currentImage = $user->profile_picture;
-        $path = public_path('profile-picture/'.$currentImage);
-        if(file_exists($path)){
-            unlink($path);
-        }
+        // // delete current profile picture from folder
+        // $currentImage = $user->profile_picture;
+        // $path = public_path('profile-picture/'.$currentImage);
+        // if(file_exists($path)){
+        //     unlink($path);
+        // }
 
-        // update the user profile picture
+        // // update the user profile picture
+        // $user->update([
+        //     'profile_picture' => $imageName
+        // ]);
+
+        // dd($request->image);
         $user->update([
-            'profile_picture' => $imageName
+            'profile_picture' =>$request->file('image')->store('profile-picture')
         ]);
+        
 
         return Redirect::back()->with('profileMessage','Image updated successfully !');
     }

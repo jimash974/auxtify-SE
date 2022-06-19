@@ -49,8 +49,14 @@
           @endauth
         </div>
         <div class="user-profile">
-          <img src="{{ url('/profile-picture' . '/' . auth()->user()->profile_picture  ) }}" style="cursor:pointer" id="dropdownMenuButton1"
+          @if(auth()->user()->profile_picture)
+          <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" style="cursor:pointer" id="dropdownMenuButton1"
               data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
+          @else
+          <img src="{{ url('/images/user_profile.png') }}" style="cursor:pointer" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
+          @endif
+              
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="#">Notifications</a></li>
               <li><a class="dropdown-item" href="/informations/status/watchlists/{{ auth()->user()->username }}">Watchlist</a></li>

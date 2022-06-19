@@ -41,7 +41,7 @@
           <div class="user-profile">
             @auth
               @if(auth()->user()->profile_picture )
-              <img src="{{ url('/profile-picture' . '/' . auth()->user()->profile_picture  ) }}" style="cursor:pointer" id="dropdownMenuButton1"
+              <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" style="cursor:pointer" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%">
               @else
               <img src="{{ url('/images/user_profile.png') }}" style="cursor:pointer" id="dropdownMenuButton1"
@@ -108,7 +108,7 @@
             Category
           </a>
         </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="#" class="nav-link text-white">
               <img src="../images/Alarmclock.png" alt="error gais">
               Ending Soon
@@ -119,7 +119,7 @@
               <img src="../images/lightning_ring.png" alt="error gais">
               Rising Fast
             </a>
-          </li>
+          </li> --}}
       </ul>
       <a href="/help/chat" class="nav-link text-white">
         <img src="../images/Chat_alt_3.png" alt="error gais">
