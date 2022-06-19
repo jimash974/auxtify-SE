@@ -34,7 +34,7 @@
 
           {{-- cek apakah di dalalm session ada key yg namanya success, kalau ada maka akan masuk ke if --}}
           @if(session()->has('success'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <div class="alert alert-success alert-dismissible fade show w-50" role="alert">
             {{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
