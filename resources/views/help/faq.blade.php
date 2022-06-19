@@ -32,7 +32,7 @@
     </p>
     <div class="collapse" id="faq2">
       <div class="card card-body">
-        A : Bisa menggunakan Transfer ATM, dan m-Banking.
+        A : Bisa menggunakan Bank Transfer, Paypal dan credit card.
       </div>
     </div>
     <p>

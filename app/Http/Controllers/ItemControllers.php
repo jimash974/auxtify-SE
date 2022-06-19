@@ -62,7 +62,8 @@ class ItemControllers extends Controller
 
         $User = User::find($id);
 
- 
+        $oldUser = User::find($item->user_id);
+        
 
         $this->validate($request, [
             'bid'     => 'required'
@@ -73,6 +74,9 @@ class ItemControllers extends Controller
         }
 
         if($request->bid > $item->bid){
+            $oldUser->update([
+                'saldo' => $oldUser->saldo + $item->bid
+            ]);
             $item->update([
                 'bid' => $request->bid,
                 'user_id' => $User->id
@@ -80,6 +84,7 @@ class ItemControllers extends Controller
             $User->update([
                 'saldo' => $User->saldo - $request->bid
             ]);
+
 
             $userBid = UserBid::create([
                 'user_id' => $User->id,

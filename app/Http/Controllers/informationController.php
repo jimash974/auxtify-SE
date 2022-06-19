@@ -41,7 +41,7 @@ class informationController extends Controller
             'saldo' => $user->saldo + $validatedData['amount']
         ]);
 
-        return redirect('/dashboard')->with('success', 'Bid Berhasil ditambahkan!');
+        return redirect('/dashboard')->with('success', 'Saldo Berhasil ditambahkan!');
 
     }
 

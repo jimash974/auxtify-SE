@@ -63,7 +63,7 @@ use Carbon\Carbon;
 					{{-- <p>{{ $watch->item->End_date }} < {{ $date }}</p> --}}
 					@if($watch->item->user_id != auth()->user()->id and $watch->item->End_date > $date)
 				
-						<p>{{ $watch->item->judul}}</p>
+						{{-- <p>{{ $watch->item->judul}}</p> --}}
 						<div class="boxactive blackborder">
 							<img src="/images/{{ $watch->item->gambar }}" alt="">
 							<div class="boxactivetext">
@@ -79,11 +79,11 @@ use Carbon\Carbon;
 									</tr>
 									<tr>
 										<td>Buy Now :</td>
-										<td>Time Remaining :</td>
+										{{-- <td>Time Remaining :</td> --}}
 									</tr>
 									<tr>
 										<td>Rp {{ $watch->item->buyNow }},-</td>
-										<td id="countdown2"></td>
+										{{-- <td id="countdown2"></td> --}}
 									</tr>
 								</table>
 							</div>
