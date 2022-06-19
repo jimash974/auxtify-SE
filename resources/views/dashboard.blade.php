@@ -16,7 +16,7 @@ use Carbon\Carbon;
                             @auth
                             {{ auth()->user()->name }}
                             @else
-                            CANTIK DAN GANTENG
+                            GUEST
                             @endauth
 
                             <br>What are you
