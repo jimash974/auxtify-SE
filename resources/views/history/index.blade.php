@@ -33,7 +33,7 @@ use Carbon\Carbon;
 								</tr>
 								<tr>
 									<td>Rp {{ $item->price }},-</td>
-									<td>Rp 280.500,-</td>
+									<td>Rp {{ $item->bid }},-</td>
 								</tr>
 								<tr>
 									<td>Buy Now :</td>
@@ -75,7 +75,7 @@ use Carbon\Carbon;
 										<td>Time Remaining :</td>
 									</tr>
 									<tr>
-										<td>Rp {{ $watch->item->buyNows }},-</td>
+										<td>Rp {{ $watch->item->buyNow }},-</td>
 										<td>Expired</td>
 									</tr>
 								</table>
