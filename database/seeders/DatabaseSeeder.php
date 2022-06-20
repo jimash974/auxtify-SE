@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
         'buyNow' => '250000',
         'deskripsi' => 'belt free rantai <br>bahan biasa <br>lebar : 4cm <br>panjang : 98cm <br>realpict',
         'gambar' => 'pants.png',
-        'End_date' => '2022-06-22 00:00:00'
+        'End_date' => '2022-06-24 00:00:00'
         ]);
         
         Item::create([
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
         'buyNow' => '800000',
         'deskripsi' => 'belt free rantai <br>bahan biasa <br>lebar : 4cm <br>panjang : 98cm <br>realpict',
         'gambar' => 'shoes.png',
-        'End_date' => '2022-06-23 00:00:00'
+        'End_date' => '2022-07-2 00:00:00'
         ]);
         
         Item::create([
@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
         'buyNow' => '7500000',
         'deskripsi' => 'Sepatu nike airmax <br>cact.us corporation Collaboration <br>Travis Scott<br>Ukuran : 40-48<br>realpict',
         'gambar' => 'Airmax.png',
-        'End_date' => '2022-06-24 00:00:00'
+        'End_date' => '2022-07-28 00:00:00'
         ]);
         
         Item::create([
@@ -111,14 +111,12 @@ class DatabaseSeeder extends Seeder
         'slug' => 'sepatu'
         ]);
 
+        // password nya = testing
         User::create([
             'name' => 'test',
             'email' => 'test@mail.com',
             'username' => 'testuser',
             'password' => '$2y$10$hB7tZdE.ZcDhaXbr2iUqkugPPBd3CqiLEr8a2Cv3Bk.qEUXpp68.O',
-            'remember_token' => '',
-            'created_at' => '2020-06-17 00:00:00',
-            'updated_at' => '2020-06-17 00:00:00',
             'saldo' => 50000000,
             'title' => 'bidder'
         ]);
