@@ -12,7 +12,7 @@ use Carbon\Carbon;
                 <!-- EDIT DISINI -->
                 <div id="greetings">
                     <p style="font-size: 36px; font-family: Actor, 'Sans serif';"><strong>Welcome Back,
-                            {{ auth()->user()->username }}<br>What are you
+                            {{ auth()->user()->name }}<br>What are you
                             looking for today?</strong></p>
                 </div>
                 <h1>{{ $category }}</h1>
